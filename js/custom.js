@@ -1,7 +1,11 @@
-CONFIG_APP_TITLE = 'Demo Data Portal';
+CONFIG_APP_TITLE = 'Schul-Datenportal';
 CONFIG_APP_HEADER_LOGO_TEXT = CONFIG_APP_TITLE;
 CONFIG_APP_AUTH_SERVICE = 'zero';
 CONFIG_APP_ROUTER_REDIRECT_ROOT_TO = 'Welcome';
+
+CONFIG_APP_LOCALE = 'de';
+CONFIG_APP_LOCALE_FALLBACK = 'en';
+CONFIG_APP_LOAD_LANGUAGE_1 = 'de';
 
 CONFIG_APP_ROUTER_BASE = '/peacock-user-ui/';
 CONFIG_APP_ROUTER_LIB_BASE = 'https://unpkg.com/peacock-user-ui@latest/dist/';
