@@ -1,0 +1,25 @@
+{
+  "name": "schule-datenportal",
+  "version": "1.0.0",
+  "description": "Schule Datenportal",
+  "main": "index.html",
+  "scripts": {
+    "open_works": "concurrently \"http-server -a localhost -p 1234\" \"open http://localhost:1234/\"",
+    "open": "http-server -a localhost -p 1234 -o",
+    "start": "npm run open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://tursics@github.com/tursics/schule-datenportal.git"
+  },
+  "author": "Thomas Tursics",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tursics/schule-datenportal/issues"
+  },
+  "homepage": "https://github.com/tursics/schule-datenportal#readme",
+  "devDependencies": {
+    "http-server": "^14.1.0"
+  }
+}
