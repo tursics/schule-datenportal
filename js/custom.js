@@ -44,9 +44,31 @@ function getParsedCSV(csvData) {
 }
 
 function transformData(dataset) {
-    var ds = dataset;
+    var ds = {};
+    const language = 'de';
+
+    ds.catalog = {
+        id: 'spreadsheet',
+        title: 'Spreadsheet',
+        description: 'Google Spreadsheet',
+    };
+    ds.country = {
+        id: language,
+        title: 'Deutschland',
+      };
+    ds.title = {};
+    ds.title[language] = dataset.title;
+  
     return ds;
 }
+
+function createAvailableFacets(datasets, resData) {
+}
+
+function filterFacets(datasets, facets) {
+    return datasets;
+}
+
 class GoogleSpreadsheetDataService {
     constructor(baseUrl) {
         this.baseUrl = baseUrl;
