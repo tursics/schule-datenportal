@@ -42,6 +42,11 @@ function getParsedCSV(csvData) {
     }
     return lines;
 }
+
+function transformData(dataset) {
+    var ds = dataset;
+    return ds;
+}
 class GoogleSpreadsheetDataService {
     constructor(baseUrl) {
         this.baseUrl = baseUrl;
@@ -69,9 +74,8 @@ class GoogleSpreadsheetDataService {
                             results: getParsedCSV(request.responseText),
                         };
                         result.count = result.results.length;
-                        console.log(result);
 
-                        resolve(result.results.map(dataset => getSingleResponseData(dataset)).concat(lazyResult));
+                        resolve(result.results.map(dataset => transformData(dataset)));
                     } else {
                         reject(request.statusText);
                     }
