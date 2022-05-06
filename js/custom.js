@@ -8,7 +8,7 @@ CONFIG_APP_LOCALE = 'de';
 CONFIG_APP_LOCALE_FALLBACK = 'en';
 //CONFIG_APP_LOAD_LANGUAGE_1 = 'de';
 
-CONFIG_APP_ROUTER_BASE = '/peacock-user-ui/';
+CONFIG_APP_ROUTER_BASE = '/schule-datenportal/';
 CONFIG_APP_ROUTER_LIB_BASE = 'https://unpkg.com/peacock-user-ui@latest/dist/';
 
 CONFIG_APP_HEADER_NAV_1_URL = '/list';
@@ -16,7 +16,7 @@ CONFIG_APP_HEADER_NAV_1_TITLE = 'Liste';
 
 CONFIG_APP_ROUTER_ROUTE_1_NAME = 'Welcome';
 CONFIG_APP_ROUTER_ROUTE_1_PATH = '/index.html';
-CONFIG_APP_ROUTER_ROUTE_1_FILE = '/peacock-user-ui/page/welcome.html';
+CONFIG_APP_ROUTER_ROUTE_1_FILE = '/schule-datenportal/page/welcome.html';
 CONFIG_APP_ROUTER_ROUTE_1_REQUIRES_AUTH = false;
 
 CONFIG_APP_ROUTER_ROUTE_2_NAME = 'Portal';
