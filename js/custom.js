@@ -24,51 +24,127 @@ CONFIG_APP_ROUTER_ROUTE_2_PATH = '/list';
 CONFIG_APP_ROUTER_ROUTE_2_COMPONENT = 'Datasets';
 CONFIG_APP_ROUTER_ROUTE_2_REQUIRES_AUTH = false;
 
+function getParsedCSV(csvData) {
+    var csvLines = csvData.split(/\r\n|\n/);
+    var header = csvLines[0].split(',');
+    var lines = [];
+
+    for (var c = 1; c < csvLines.length; ++c) {
+        var line = csvLines[c].split(',');
+
+        if (line.length === header.length) {
+            var obj = {};
+            for (var id = 0; id < header.length; ++id) {
+                obj[header[id]] = line[id];
+            }
+            lines.push(obj);
+        }
+    }
+    return lines;
+}
 class GoogleSpreadsheetDataService {
     constructor(baseUrl) {
-        // Clear newURL
-//        $scope.newURL = '';
-
-        // Empty array for all the original grid IDs
-//        $scope.oldGrids = [];
-        // Empty array for all the new grid IDs
-//        $scope.newGrids = [];
-
-        var preString = baseUrl.substring(baseUrl.indexOf('/d/') + 3);
-        if (preString.indexOf('/') > -1) {
-            this.spreadsheetId = preString.substring(0, preString.indexOf('/'));
-        } else {
-            this.spreadsheetId = preString;
-        }
-
-        this.grid = baseUrl.substring(baseUrl.indexOf('=') + 1);
-
-        this.uriXMLV3 = 'https://spreadsheets.google.com/feeds/worksheets/' + this.spreadsheetId + '/public/full';
-//        this.uriXML = 'https://www.googleapis.com/auth/spreadsheets.readonly/' + this.spreadsheetId;
-        this.uriXML = 'https://sheets.googleapis.com/v4/spreadsheets/' + this.spreadsheetId;
-
-        console.log('spreadsheet id ' + this.spreadsheetId);
-        console.log('grid ' + this.grid);
-        console.log('uriXML v3 ' + this.uriXMLV3);
-        console.log('uriXML v4 ' + this.uriXML);
         this.baseUrl = baseUrl;
+        this.datasets = null;
+    }
+
+    loadFile() {
+        return new Promise((resolve, reject) => {
+            if (this.datasets) {
+                resolve(this.datasets);
+                return;
+            }
+
+            var request = new XMLHttpRequest();
+            request.open('GET', this.baseUrl, true);
+            request.onload = function (e) {
+                if (request.readyState === 4) {
+                    if (request.status === 200) {
+                        if (request.responseText == '') {
+                          throw new Error('no data found');
+                        }
+
+                        var result = {
+                            count: 0,
+                            results: getParsedCSV(request.responseText),
+                        };
+                        result.count = result.results.length;
+                        console.log(result);
+
+                        resolve(result.results.map(dataset => getSingleResponseData(dataset)).concat(lazyResult));
+                    } else {
+                        reject(request.statusText);
+                    }
+                }
+            };
+            request.onerror = function (e) {
+                reject(request.statusText);
+            };
+            request.send();
+        });
+    }
+
+    get(q, facets, limit, page = 0, sort = 'relevance+asc, last_modified+asc, name+asc'/* , facetOperator = "AND", facetGroupOperator = "AND", geoBounds */) {
+        return new Promise((resolve, reject) => {
+          this.loadFile()
+            .then((loadedDatasets) => {
+              this.datasets = loadedDatasets;
+              const query = q.trim().toLowerCase();
+              let datasets = this.datasets;
+    
+              datasets = datasets.filter((dataset) => {
+                if (query === '') {
+                  return true;
+                }
+                if (dataset.title && dataset.title.de && (dataset.title.de.toLowerCase().indexOf(query) !== -1)) {
+                  return true;
+                }
+                if (dataset.description && dataset.description.de && (dataset.description.de.toLowerCase().indexOf(query) !== -1)) {
+                  return true;
+                }
+                return false;
+              });
+    
+              const sortOption = sort.split(',')[0].split('+');
+              if (sortOption.length === 2) {
+                if (sortOption[0] === 'relevance') {
+                  // do nothing on 'relevance'
+                } else if (sortOption[0] === 'modification_date') {
+                  datasets.sort(sortModificationDate);
+                } else if (sortOption[0] === 'release_date') {
+                  datasets.sort(sortReleaseDate);
+                } else if (sortOption[1] === 'asc') {
+                  datasets.sort(sortTitleAsc);
+                } else {
+                  datasets.sort(sortTitleDesc);
+                }
+              }
+    
+              datasets = filterFacets(datasets, facets);
+    
+              const resData = {
+                availableFacets: [],
+                datasetsCount: datasets.length,
+                datasets: [],
+              };
+    
+              createAvailableFacets(datasets, resData);
+    
+              const start = (page - 1) * limit;
+              const end = Math.min(start + limit, resData.datasetsCount);
+              for (let d = start; d < end; d += 1) {
+                resData.datasets.push(datasets[d]);
+              }
+    
+              resolve(resData);
+            })
+            .catch((error) => {
+              reject(error);
+            });
+        });
     }
 };
 
-CONFIG_APP_DATA_SERVICE = {
-    constructor(baseUrl) {
-        this.baseUrl = baseUrl;
-    },
-
-    getSingle(id) {
-        console.log('getSingle');
-    },
-
-    get(q, facets, limit, page = 0 /* , sort = 'relevance+asc, last_modified+asc, name+asc', facetOperator = "AND", facetGroupOperator = "AND", geoBounds */) {
-        console.log('get');
-    }
-};
-
-CONFIG_APP_DATA_URL = 'https://docs.google.com/spreadsheets/d/1BEDAUycmxo2ekI3FeLinsUqbqQniKXpqKR067INtsos/edit#gid=0';
-//CONFIG_APP_DATA_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSaLGv04zGBi7TnqZn6DJS9vb_6ynVPD0ShDqv57uyRTLgr7Nknbx7344_wtORc_i3ItZQRzDK9GXrV/pub?gid=0&single=true&output=csv';
+//CONFIG_APP_DATA_URL = 'https://docs.google.com/spreadsheets/d/1BEDAUycmxo2ekI3FeLinsUqbqQniKXpqKR067INtsos/edit#gid=0';
+CONFIG_APP_DATA_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSaLGv04zGBi7TnqZn6DJS9vb_6ynVPD0ShDqv57uyRTLgr7Nknbx7344_wtORc_i3ItZQRzDK9GXrV/pub?gid=0&single=true&output=csv';
 CONFIG_APP_DATA_SERVICE = GoogleSpreadsheetDataService;
