@@ -45,7 +45,6 @@ function getParsedCSV(csvData) {
 
 function transformData(dataset) {
     var ds = {};
-    const language = 'de';
 
     ds.catalog = {
         id: 'spreadsheet',
@@ -53,11 +52,12 @@ function transformData(dataset) {
         description: 'Google Spreadsheet',
     };
     ds.country = {
-        id: language,
+        id: CONFIG_APP_LOCALE,
         title: 'Deutschland',
-      };
+    };
+    ds.id = dataset.id;
     ds.title = {};
-    ds.title[language] = dataset.title;
+    ds.title[CONFIG_APP_LOCALE] = dataset.title;
   
     return ds;
 }
