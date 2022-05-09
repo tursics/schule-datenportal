@@ -79,17 +79,17 @@ function transformData(dataset) {
     distribution.id = 'dist.id';
     if (dataset.docLicense) {
         distribution.licence = {
-            id: undefined,
+            id: dataset.docLicense,
             title: dataset.docLicense,
             resource: undefined,
             description: undefined,
             la_url: undefined,
         };
-    } else if (ds.licence) {
+    } else if (dataset.license) {
         distribution.licence = {
-            id: undefined,
-            title: ds.licence,
-            resource: undefined,
+            id: dataset.license,
+            title: dataset.license,
+            resource: 'resouce',
             description: undefined,
             la_url: undefined,
         };
@@ -101,6 +101,10 @@ function transformData(dataset) {
             description: undefined,
             la_url: undefined,
         };
+    }
+    if (distribution.licence.id === 'officialWork') {
+        distribution.licence.title = 'Amtliches Werk, lizenzfrei';
+        distribution.licence.resource = 'http://www.gesetze-im-internet.de/urhg/__5.html';
     }
     distribution.modificationDate = dataset.docModDate ? dataset.docModDate : ds.modificationDate;
     distribution.releaseDate = dataset.docDate ? dataset.docDate : ds.releaseDate;
