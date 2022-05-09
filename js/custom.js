@@ -28,11 +28,11 @@ function transformData(dataset) {
     var ds = {};
 
     ds.catalog = {
-        id: dataset.source,
+        id: dataset.source.trim(),
         title: dataset.source,
         description: dataset.source,
     };
-    if (ds.catalog.id.trim() === 'PARDOK') {
+    if (ds.catalog.id === 'PARDOK') {
         ds.catalog.title = 'Parlamentsdokumentation';
         ds.catalog.description = 'In der Parlamentsdokumentation (PARDOK) stehen Ihnen alle öffentlich zugänglichen parlamentarischen Vorgänge - darunter Gesetzesentwürfe, Anträge, Aktuelle Stunden, Schriftliche Anfragen - bis zurück zur 11. Wahlperiode (seit 02.03.1989) digital zur Verfügung.';
     }
