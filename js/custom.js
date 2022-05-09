@@ -28,10 +28,14 @@ function transformData(dataset) {
     var ds = {};
 
     ds.catalog = {
-        id: 'spreadsheet',
-        title: 'Spreadsheet',
-        description: 'Google Spreadsheet',
+        id: dataset.source,
+        title: dataset.source,
+        description: dataset.source,
     };
+    if (ds.catalog.id.trim() === 'PARDOK') {
+        ds.catalog.title = 'Parlamentsdokumentation';
+        ds.catalog.description = 'In der Parlamentsdokumentation (PARDOK) stehen Ihnen alle öffentlich zugänglichen parlamentarischen Vorgänge - darunter Gesetzesentwürfe, Anträge, Aktuelle Stunden, Schriftliche Anfragen - bis zurück zur 11. Wahlperiode (seit 02.03.1989) digital zur Verfügung.';
+    }
     ds.distributions = [];
     ds.distributionFormats = [];
     ds.country = {
@@ -40,10 +44,17 @@ function transformData(dataset) {
     };
     ds.id = dataset.id;
     ds.idName = dataset.id;
+    ds.keywords = [];
+    /* for (const tag of dataset.tags) {
+        ds.keywords.push({
+            id: tag.id,
+            title: tag.display_name,
+        });
+    }*/
     ds.modificationDate = dataset.modDate ? dataset.modDate : dataset.date;
     ds.publisher = {
         type: 'organization',
-        name: dataset.source,
+        name: undefined,
         email: undefined,
         resource: undefined,
       };
@@ -135,11 +146,133 @@ function getParsedCSV(csvData) {
     return lines;
 }
 
+const createObjectFacet = (datasets, resData, options) => {
+    const items = [];
+    const countItems = {};
+    for (const dataset of datasets) {
+        if (!countItems[dataset[options.object].id]) {
+            countItems[dataset[options.object].id] = {
+                count: 0,
+                title: dataset[options.object].title,
+            };
+        }
+        countItems[dataset[options.object].id].count += 1;
+    }
+    Object.keys(countItems).forEach((key) => {
+        items.push({
+            count: countItems[key].count,
+            id: key,
+            title: countItems[key].title,
+        });
+    });
+  
+    resData.availableFacets.push({
+        id: options.id,
+        title: options.title,
+        items,
+    });
+};
+
+const createArrayFacet = (datasets, resData, options) => {
+    const items = [];
+    const countItems = {};
+    for (const dataset of datasets) {
+        for (const object of dataset[options.object]) {
+            if (!countItems[object.id]) {
+                countItems[object.id] = {
+                    count: 0,
+                    title: object.title,
+                };
+            }
+            countItems[object.id].count += 1;
+        }
+    }
+    Object.keys(countItems).forEach((key) => {
+        items.push({
+            count: countItems[key].count,
+            id: key,
+            title: countItems[key].title,
+        });
+    });
+  
+    resData.availableFacets.push({
+        id: options.id,
+        title: options.title,
+        items,
+    });
+};
+
+const createCatalogFacets = (datasets, resData) => {
+    createObjectFacet(datasets, resData, {
+        id: 'catalog',
+        title: 'Catalogues',
+        object: 'catalog',
+    });
+};
+
+const createFormatFacet = (datasets, resData) => {
+    createArrayFacet(datasets, resData, {
+        id: 'format',
+        title: 'Formats',
+        object: 'distributionFormats',
+    });
+};
+
+const createKeywordsFacet = (datasets, resData) => {
+    createArrayFacet(datasets, resData, {
+        id: 'keywords',
+        title: 'Keywords',
+        object: 'keywords',
+    });
+};
+
+const createLicenseFacets = (datasets, resData) => {
+    createArrayFacet(datasets, resData, {
+        id: 'license',
+        title: 'Licenses',
+        object: 'licences',
+    });
+};
+  
 function createAvailableFacets(datasets, resData) {
+    createCatalogFacets(datasets, resData);
+//    createCategoriesFacets(datasets, resData);
+//    createCountryFacets(datasets, resData);
+//    createDataScopeFacet(datasets, resData);
+    createFormatFacet(datasets, resData);
+    createKeywordsFacet(datasets, resData);
+//    createLicenseFacets(datasets, resData);
+//    createScoringFacet(datasets, resData);
 }
 
 function filterFacets(datasets, facets) {
-    return datasets;
+    let data = datasets;
+
+    if (facets.catalog) {
+        for (const catalog of facets.catalog) {
+            data = data.filter(dataset => String(dataset.catalog.id).toLocaleLowerCase() === catalog.toLocaleLowerCase());
+        }
+    }
+
+    if (facets.format) {
+        for (const format of facets.format) {
+            data = data.filter(dataset => dataset.distributionFormats.find(form => String(form.id).toLocaleLowerCase() === format.toLocaleLowerCase()));
+        }
+    }
+
+    if (facets.keywords) {
+        for (const keyword of facets.keywords) {
+            data = data.filter(dataset => dataset.keywords.find(word => String(word.id).toLocaleLowerCase() === keyword.toLocaleLowerCase()));
+        }
+    }
+
+    if (facets.licence) {
+        for (const licence of facets.licence) {
+            data = data.filter(dataset => dataset.licences.find(lic => String(lic.id).toLocaleLowerCase() === licence.toLocaleLowerCase()));
+        }
+    }
+
+    return data;
 }
 
 class GoogleSpreadsheetDataService {
