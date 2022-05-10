@@ -52,7 +52,7 @@ function transformData(dataset) {
         tags = tags.split(',');
         for (const tag of tags) {
             ds.keywords.push({
-                id: tag.trim(),
+                id: tag.trim().toLocaleLowerCase(),
                 title: tag.trim(),
             });
         }
@@ -122,6 +122,9 @@ function transformData(dataset) {
     if (distribution.licence.id === 'officialWork') {
         distribution.licence.title = 'Amtliches Werk, lizenzfrei';
         distribution.licence.resource = 'http://www.gesetze-im-internet.de/urhg/__5.html';
+    } else if (distribution.licence.id === 'other-closed') {
+        distribution.licence.title = 'Andere geschlossene Lizenz';
+        distribution.licence.resource = '';
     }
     distribution.modificationDate = dataset.docModDate ? dataset.docModDate : ds.modificationDate;
     distribution.releaseDate = dataset.docDate ? dataset.docDate : ds.releaseDate;
