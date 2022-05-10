@@ -36,6 +36,8 @@ function transformData(dataset) {
         ds.catalog.title = 'Parlamentsdokumentation';
         ds.catalog.description = 'In der Parlamentsdokumentation (PARDOK) stehen Ihnen alle öffentlich zugänglichen parlamentarischen Vorgänge - darunter Gesetzesentwürfe, Anträge, Aktuelle Stunden, Schriftliche Anfragen - bis zurück zur 11. Wahlperiode (seit 02.03.1989) digital zur Verfügung.';
     }
+    ds.description = {};
+    ds.description[CONFIG_APP_LOCALE] = dataset.description;
     ds.distributions = [];
     ds.distributionFormats = [];
     ds.country = {
@@ -45,12 +47,16 @@ function transformData(dataset) {
     ds.id = dataset.id;
     ds.idName = dataset.id;
     ds.keywords = [];
-    /* for (const tag of dataset.tags) {
-        ds.keywords.push({
-            id: tag.id,
-            title: tag.display_name,
-        });
-    }*/
+    var tags = dataset.tags.trim();
+    if (tags !== '') {
+        tags = tags.split(',');
+        for (const tag of tags) {
+            ds.keywords.push({
+                id: tag.trim(),
+                title: tag.trim(),
+            });
+        }
+    }
     ds.modificationDate = dataset.modDate ? dataset.modDate : dataset.date;
     ds.publisher = {
         type: 'organization',
@@ -127,13 +133,30 @@ function transformData(dataset) {
     return ds;
 }
 
+// https://stackoverflow.com/questions/8493195/how-can-i-parse-a-csv-string-with-javascript-which-contains-comma-in-data
+function getParsedCSVLine(text) {
+    let p = '', row = [''], ret = [row], i = 0, r = 0, s = !0, l;
+    for (l of text) {
+        if ('"' === l) {
+            if (s && l === p) row[i] += l;
+            s = !s;
+        } else if (',' === l && s) l = row[++i] = '';
+        else if ('\n' === l && s) {
+            if ('\r' === p) row[i] = row[i].slice(0, -1);
+            row = ret[++r] = [l = '']; i = 0;
+        } else row[i] += l;
+        p = l;
+    }
+    return ret[0];
+}
+
 function getParsedCSV(csvData) {
     var csvLines = csvData.split(/\r\n|\n/);
     var header = csvLines[0].split(',');
     var lines = [];
 
     for (var c = 1; c < csvLines.length; ++c) {
-        var line = csvLines[c].split(',');
+        var line = getParsedCSVLine(csvLines[c]);
 
         if (line.length === header.length) {
             var obj = {};
