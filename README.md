@@ -4,8 +4,12 @@ Based on https://github.com/opendata-guru/peacock-user-ui
 
 Github Pages: https://tursics.github.io/schule-datenportal/
 
-Ideation: https://codepen.io/nickmoreton/pen/bEMaoE
 
-Migrate Google API: https://developers.google.com/sheets/api/guides/migration#v4-api_9
+## Graphics
 
-https://undraw.co/
+We use Open Source illustration from [unDraw](https://undraw.co/).
+The illustrations can be used in any project, commercial or personal without attribution or any costs.
+Yeah.
+
+Used colors:
+- red: #e1306c
