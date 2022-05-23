@@ -1,9 +1,8 @@
 # schule-datenportal
 
-Based on https://github.com/opendata-guru/peacock-user-ui
+Based on [https://github.com/opendata-guru/peacock-user-ui](Peacock data portal).
 
-Github Pages: https://tursics.github.io/schule-datenportal/
-
+Github Pages: [https://tursics.github.io/schule-datenportal/](github)
 
 ## Graphics
 
@@ -12,4 +11,5 @@ The illustrations can be used in any project, commercial or personal without att
 Yeah.
 
 Used colors:
+
 - red: #e1306c
