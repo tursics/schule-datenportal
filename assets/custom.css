@@ -1,0 +1,36 @@
+.data-info-box.dataset[type=Webseite] {
+}
+
+.data-info-box.dataset[type=Twitter] {
+    background-color: #1D9BF020 !important;
+    border-color: #1D9BF0 !important;
+}
+.data-info-box.dataset[type=Twitter]:hover {
+    background-color: #1D9BF040 !important;
+}
+.dataset-details-header[type=Twitter] img.catalogue-flag,
+.data-info-box.dataset[type=Twitter] img.catalogue-flag {
+    border: none !important;
+    content: url('fa-twitter.svg');
+    height: 1.25rem;
+    width: 1.25rem;
+}
+
+div[type=Artikel] .badge,
+.badge[type=Artikel] {
+    background-color: #FFFFFF !important;
+    border-color: #004B87 !important;
+    color: #004B87 !important;
+}
+div[type=PDF] .badge,
+.badge[type=PDF] {
+    background-color: #F40F02 !important;
+    border-color: #BA131F !important;
+    color: #FFFFFF !important;
+}
+div[type=Tweet] .badge,
+.badge[type=Tweet] {
+    background-color: #1D9BF0 !important;
+    border-color: #657786 !important;
+    color: #F5F8FA !important;
+}
