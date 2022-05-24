@@ -1,4 +1,20 @@
+.data-info-box.dataset[type=Pressemitteilung],
 .data-info-box.dataset[type=Webseite] {
+    background-color: #f33b1d10 !important;
+    border-color: #f33b1d !important;
+}
+.data-info-box.dataset[type=Pressemitteilung]:hover,
+.data-info-box.dataset[type=Webseite]:hover {
+    background-color: #f33b1d28 !important;
+}
+.dataset-details-header[type=Pressemitteilung] img.catalogue-flag,
+.data-info-box.dataset[type=Pressemitteilung] img.catalogue-flag,
+.dataset-details-header[type=Webseite] img.catalogue-flag,
+.data-info-box.dataset[type=Webseite] img.catalogue-flag {
+    border: none !important;
+    content: url('wiki-berlin.svg');
+    height: 1.25rem;
+    width: 0.7623rem;
 }
 
 .data-info-box.dataset[type=Twitter] {
