@@ -1,6 +1,6 @@
 # schule-datenportal
 
-Based on [https://github.com/opendata-guru/peacock-user-ui](Peacock data portal).
+Based on [Peacock data portal](https://github.com/opendata-guru/peacock-user-ui).
 
 Github Pages: [https://tursics.github.io/schule-datenportal/](github)
 
