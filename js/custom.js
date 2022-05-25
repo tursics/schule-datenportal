@@ -52,8 +52,11 @@ function transformData(dataset) {
         description: dataset.source,
     };
     if (ds.catalog.id === 'PARDOK') {
-        ds.catalog.title = { [CONFIG_APP_LOCALE]: 'Parlamentsdokumentation' };
+        ds.catalog.title = { [CONFIG_APP_LOCALE]: 'Parlament' };
         ds.catalog.description = 'In der Parlamentsdokumentation (PARDOK) stehen Ihnen alle öffentlich zugänglichen parlamentarischen Vorgänge - darunter Gesetzesentwürfe, Anträge, Aktuelle Stunden, Schriftliche Anfragen - bis zurück zur 11. Wahlperiode (seit 02.03.1989) digital zur Verfügung.';
+    } else if (ds.catalog.id === 'iTWO tender') {
+        ds.catalog.title = { [CONFIG_APP_LOCALE]: 'Ausschreibung' };
+        ds.catalog.description = 'iTWO tender ist Ihre zentrale Auftragsplattform im Internet.';
     }
     ds.description = {};
     ds.description[CONFIG_APP_LOCALE] = dataset.description;

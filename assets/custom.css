@@ -6,8 +6,9 @@
     -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 	clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     height: 6rem;
+    padding: 0 .3rem;
     position: absolute;
-    right: .5rem;
+    right: .1rem;
     text-align: center;
     top: .5rem;
     width: 5.22rem;
@@ -18,7 +19,38 @@
     height: 3rem;
     margin: 0 auto;
     padding-top: 1rem;
-    width: 5.22rem;
+    width: 4.62rem;
+}
+
+.data-info-box.dataset[type="iTWO tender"] {
+    border-color: #0077cc !important;
+}
+.data-info-box.dataset[type="iTWO tender"]:hover {
+    background-color: #0077cc20 !important;
+}
+.data-info-box.dataset[type="iTWO tender"] ul.subtitle-list li:first-child {
+    background: #0077cc;
+    color: #fff;
+}
+.dataset-details-header[type="iTWO tender"] img.catalogue-flag,
+.data-info-box.dataset[type="iTWO tender"] img.catalogue-flag {
+    content: url('fa-itwo.svg');
+    filter: brightness(0) invert(1);
+}
+
+.data-info-box.dataset[type=PARDOK] {
+    border-color: #022e5b !important;
+}
+.data-info-box.dataset[type=PARDOK]:hover {
+    background-color: #022e5b20 !important;
+}
+.data-info-box.dataset[type=PARDOK] ul.subtitle-list li:first-child {
+    background: #022e5b;
+    color: #fff;
+}
+.dataset-details-header[type=PARDOK] img.catalogue-flag,
+.data-info-box.dataset[type=PARDOK] img.catalogue-flag {
+    content: url('logo-agh.svg');
 }
 
 .data-info-box.dataset[type=Pressemitteilung],
@@ -32,13 +64,19 @@
 .data-info-box.dataset[type=Pressemitteilung] ul.subtitle-list li:first-child,
 .data-info-box.dataset[type=Webseite] ul.subtitle-list li:first-child {
     background: #f33b1d40;
-    border-color: #f33b1d !important;
 }
 .dataset-details-header[type=Pressemitteilung] img.catalogue-flag,
 .data-info-box.dataset[type=Pressemitteilung] img.catalogue-flag,
 .dataset-details-header[type=Webseite] img.catalogue-flag,
 .data-info-box.dataset[type=Webseite] img.catalogue-flag {
     content: url('wiki-berlin.svg');
+}
+.data-info-box.dataset[type=Pressemitteilung] ul.subtitle-list li:first-child span {
+    font-size: 0;
+}
+.data-info-box.dataset[type=Pressemitteilung] ul.subtitle-list li:first-child span:after {
+    content: "Presse";
+    font-size: .875rem;
 }
 
 .data-info-box.dataset[type=Twitter] {
@@ -48,13 +86,30 @@
     background-color: #1D9BF010 !important;
 }
 .data-info-box.dataset[type=Twitter] ul.subtitle-list li:first-child {
-    background: #1D9BF040;
-    border-color: #1D9BF0 !important;
+    background: #1D9BF0;
+    color: #fff;
 }
 .dataset-details-header[type=Twitter] img.catalogue-flag,
 .data-info-box.dataset[type=Twitter] img.catalogue-flag {
     content: url('fa-twitter.svg');
+    filter: brightness(0) invert(1);
     width: 1.8rem;
+}
+
+.data-info-box.dataset[type=Tagesspiegel] {
+    border-color: #3cb371 !important;
+}
+.data-info-box.dataset[type=Tagesspiegel]:hover {
+    background-color: #3cb37120 !important;
+}
+.data-info-box.dataset[type=Tagesspiegel] ul.subtitle-list li:first-child {
+    background: #3cb371;
+    color: #fff;
+}
+.dataset-details-header[type=Tagesspiegel] img.catalogue-flag,
+.data-info-box.dataset[type=Tagesspiegel] img.catalogue-flag {
+    content: url('fa-newspaper.svg');
+    filter: brightness(0) invert(1);
 }
 
 div[type=Artikel] .badge,
