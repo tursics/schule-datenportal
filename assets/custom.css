@@ -13,6 +13,9 @@
     top: .5rem;
     width: 5.22rem;
 }
+.dataset-details-header img.catalogue-flag {
+    border: none !important;
+}
 .data-info-box.dataset img.catalogue-flag {
     border: none !important;
     display: block;
@@ -35,6 +38,8 @@
 .dataset-details-header[type="iTWO tender"] img.catalogue-flag,
 .data-info-box.dataset[type="iTWO tender"] img.catalogue-flag {
     content: url('fa-itwo.svg');
+}
+.data-info-box.dataset[type="iTWO tender"] img.catalogue-flag {
     filter: brightness(0) invert(1);
 }
 
@@ -51,6 +56,9 @@
 .dataset-details-header[type=PARDOK] img.catalogue-flag,
 .data-info-box.dataset[type=PARDOK] img.catalogue-flag {
     content: url('logo-agh.svg');
+}
+.dataset-details-header[type=PARDOK] img.catalogue-flag {
+    filter: brightness(1) invert(1);
 }
 
 .data-info-box.dataset[type=Pressemitteilung],
@@ -92,8 +100,10 @@
 .dataset-details-header[type=Twitter] img.catalogue-flag,
 .data-info-box.dataset[type=Twitter] img.catalogue-flag {
     content: url('fa-twitter.svg');
-    filter: brightness(0) invert(1);
     width: 1.8rem;
+}
+.data-info-box.dataset[type=Twitter] img.catalogue-flag {
+    filter: brightness(0) invert(1);
 }
 
 .data-info-box.dataset[type=Tagesspiegel] {
@@ -109,6 +119,8 @@
 .dataset-details-header[type=Tagesspiegel] img.catalogue-flag,
 .data-info-box.dataset[type=Tagesspiegel] img.catalogue-flag {
     content: url('fa-newspaper.svg');
+}
+.data-info-box.dataset[type=Tagesspiegel] img.catalogue-flag {
     filter: brightness(0) invert(1);
 }
 
