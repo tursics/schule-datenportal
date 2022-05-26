@@ -9,24 +9,37 @@ CONFIG_APP_LOAD_LANGUAGE_1 = 'de';
 CONFIG_APP_LANGUAGES = {
     'en': {
         'message': {
+            "datasetDetails": {
+                'openResource': 'Go to link'
+            },
             'datasetFacets': {
                 'facets': {
                     'catalogues': 'Sources'
                 }
+            },
+            'metadata': {
+                'distributions': 'Original and data'
             }
         }
     },
     'de': {
         'message': {
+            "datasetDetails": {
+                'download': 'Herunterladen',
+                'openResource': 'Link öffnen'
+            },
             'datasetFacets': {
                 'facets': {
                     'catalogues': 'Quellen'
                 }
+            },
+            'metadata': {
+                'distributions': 'Original und Daten'
             }
         }
     }
 };
-  
+
 CONFIG_APP_ROUTER_BASE = '/schule-datenportal/';
 CONFIG_APP_ROUTER_LIB_BASE = 'https://unpkg.com/peacock-user-ui@latest/dist/';
 
@@ -42,6 +55,11 @@ CONFIG_APP_ROUTER_ROUTE_2_NAME = 'Portal';
 CONFIG_APP_ROUTER_ROUTE_2_PATH = '/list';
 CONFIG_APP_ROUTER_ROUTE_2_COMPONENT = 'Datasets';
 CONFIG_APP_ROUTER_ROUTE_2_REQUIRES_AUTH = false;
+
+CONFIG_APP_ROUTER_ROUTE_3_NAME = 'LicenseOtherClosed';
+CONFIG_APP_ROUTER_ROUTE_3_PATH = '/license/other-closed';
+CONFIG_APP_ROUTER_ROUTE_3_FILE = `${CONFIG_APP_ROUTER_BASE}pages/license-other-closed.html`;
+CONFIG_APP_ROUTER_ROUTE_3_REQUIRES_AUTH = false;
 
 function transformData(dataset) {
     var ds = {};
@@ -100,7 +118,6 @@ function transformData(dataset) {
     };
     
     const distribution = {};
-    distribution.accessUrl = '';
     if (dataset.docDescription) {
         distribution.description = {};
         distribution.description[CONFIG_APP_LOCALE] = dataset.docDescription;
@@ -110,11 +127,15 @@ function transformData(dataset) {
         };
     }
     distribution.downloadUrls = [];
-    distribution.downloadUrls.push(dataset.docURL);
     distribution.format = {
         id: dataset.docFormat,
         title: dataset.docFormat,
     };
+    if (['Tweet','Artikel'].indexOf(distribution.format.id) !== -1) {
+        distribution.accessUrl = dataset.docURL;
+    } else {
+        distribution.downloadUrls.push(dataset.docURL);
+    }
     distribution.id = 'dist.id';
     if (dataset.docLicense) {
         distribution.licence = {
@@ -146,7 +167,7 @@ function transformData(dataset) {
         distribution.licence.resource = 'http://www.gesetze-im-internet.de/urhg/__5.html';
     } else if (distribution.licence.id === 'other-closed') {
         distribution.licence.title = 'Andere geschlossene Lizenz';
-        distribution.licence.resource = '';
+        distribution.licence.resource = '/license/other-closed';
     }
     distribution.modificationDate = dataset.docModDate ? dataset.docModDate : ds.modificationDate;
     distribution.releaseDate = dataset.docDate ? dataset.docDate : ds.releaseDate;

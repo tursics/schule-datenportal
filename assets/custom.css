@@ -25,6 +25,12 @@
     width: 4.62rem;
 }
 
+div[typeof="dcat:Dataset"] .distributions h3 .badge {
+    display: none;
+}
+
+/* ------------------ */
+
 .data-info-box.dataset[type="iTWO tender"] {
     border-color: #0077cc !important;
 }
