@@ -13,3 +13,8 @@ Yeah.
 Used colors:
 
 - red: #e1306c
+
+Layout ideas:
+
+- https://demos.creative-tim.com/soft-ui-dashboard/pages/sign-in.html
+- https://prium.github.io/falcon/v3.4.0/dashboard/crm.html
