@@ -1,3 +1,10 @@
+body {
+    background-color: #f8f9fa!important;
+    font-weight: 400;
+}
+
+/* ------------------ */
+
 header {
     position: sticky;
     top: 0;
@@ -48,6 +55,39 @@ header nav.navbar .nav-link {
 
 .content-wrapper {
     padding-top: 5.5rem;
+}
+
+/* ------------------ */
+
+.dataset-facets .facet-field .list-group {
+    border-radius: 0.5rem;
+}
+
+.dataset-facets .facet-header-item {
+    background-image: linear-gradient(310deg,#7928ca,#ff0080);
+    background-position-x: 25%;
+    background-size: 150%;
+    border: 0;
+    font-size: .75rem;
+    padding: .75rem 1.5rem;
+    text-align: center;
+}
+.dataset-facets .facet-header-item .facet-title {
+    color: #fff !important;
+    letter-spacing: -0.03rem;
+    text-transform: uppercase;
+}
+.dataset-facets button.btn-secondary {
+    background-image: linear-gradient(310deg,#141727,#3a416f);
+    background-position-x: 25%;
+    background-size: 150%;
+    border: 0;
+    color: #fff;
+    font-size: .75rem;
+    letter-spacing: -0.03rem;
+    padding: .75rem 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 /* ------------------ */
