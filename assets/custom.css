@@ -242,7 +242,7 @@ header nav.navbar .nav-link {
     border-radius: 0;
     margin-bottom: 0 !important;
     margin-top: 0 !important;
-    padding: .5rem 1rem 0 1.875rem;
+    padding: .5rem 1rem 0 1.8rem;
 }
 .datasets section > div:nth-child(2) > div.text-center {
     flex: auto;
@@ -272,10 +272,11 @@ header nav.navbar .nav-link {
 .datasets section > div:nth-child(3) > p > span:first-child {
     font-weight: 400;
     margin-right: -.25rem;
-    padding-left: .875rem;
+    padding-left: .8rem;
     vertical-align: middle;
 }
 .datasets section > div:nth-child(3) .badge {
+    font-size: .75rem;
     margin-left: .25rem;
 }
 .datasets section > div:nth-child(3) .badge .close-facet {
