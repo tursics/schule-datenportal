@@ -273,7 +273,6 @@ header nav.navbar .nav-link {
     font-weight: 400;
     margin-right: -.25rem;
     padding-left: .8rem;
-    vertical-align: middle;
 }
 .datasets section > div:nth-child(3) .badge {
     font-size: .75rem;
