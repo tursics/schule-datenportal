@@ -163,6 +163,7 @@ header nav.navbar .nav-link {
 
 .dataset-facets .facet-field .list-group {
     margin-right: .75rem;
+    padding-bottom: 1rem;
     padding-right: 0;
 }
 
@@ -194,6 +195,9 @@ header nav.navbar .nav-link {
     color: #fff !important;
     letter-spacing: -0.03rem;
     text-transform: uppercase;
+}
+.dataset-facets button.btn-secondary {
+    margin-bottom: -1rem;
 }
 .dataset-facets button.btn-secondary,
 .datasets section .input-group button {
