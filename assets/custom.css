@@ -24,7 +24,7 @@ header nav.navbar .nav-link {
 .dataset-facets .list-group-item,
 .datasets section > div:nth-child(2),
 .datasets section > div:nth-child(3) {
-        color: #344767;
+    color: #344767;
     font-size: .875rem;
     font-weight: 600;
 }
@@ -72,12 +72,13 @@ header nav.navbar .navbar-brand {
     background-size: 150%;
 }
 .dataset-facets .list-group-item-action.active:hover {
-    background-color: #fff;
+        background-color: #fff;
     background-image: linear-gradient(310deg,#7928ca60,#ff008060);
     background-position-x: 25%;
     background-size: 150%;
 }
-.dataset-facets .list-group-item-action.active {
+.dataset-facets .list-group-item-action.active,
+.datasets section > .data-info-box.dataset:hover a {
     background-color: #fff;
     background-image: linear-gradient(310deg,#7928ca40,#ff008040);
     background-position-x: 25%;
@@ -219,6 +220,7 @@ header nav.navbar .nav-link {
 }
 
 /* ------------------ */
+/*   dataset filter   */
 /* ------------------ */
 
 .datasets section {
@@ -287,32 +289,76 @@ header nav.navbar .nav-link {
 }
 
 /* ------------------ */
+/*    dataset list    */
+/* ------------------ */
+
+.datasets section > .data-info-box.dataset:nth-child(4) {
+    border-radius: 1rem 1rem 0 0;
+    margin-top: 2rem !important;
+}
+.datasets section > .data-info-box.dataset:nth-child(4)::before {
+    content: 'Datensätze';
+    font-weight: 600;
+    padding: .5rem 0 1.5rem 0;
+}
+.datasets section > .data-info-box.dataset {
+    background: #fff;
+    border: none !important;
+    box-shadow: 0 .3rem .7rem 0 rgba(0,0,0,.1) !important;
+    margin-top: 0 !important;
+    padding: 1rem 1rem .5rem 1rem;
+}
+.datasets section > .data-info-box.dataset:last-child {
+    border-radius: 0 0 1rem 1rem;
+}
+.datasets section > .data-info-box.dataset a {
+    background-image: linear-gradient(310deg,#14172710,#3a416f10);
+}
+.datasets section > .data-info-box.dataset a:first-child {
+    border-radius: .75rem .75rem 0 0;
+}
+.datasets section > .data-info-box.dataset a:last-child {
+    border-radius: 0 0 .75rem .75rem;
+}
+
+/* ------------------ */
+/* dataset list item  */
+/* ------------------ */
 
 .data-info-box.dataset .card-header {
-    padding-right: 7rem;
+    padding-left: 4rem;
+    position: relative;
 }
-.data-info-box.dataset ul.subtitle-list li:first-child {
-    background: #ddd;
-    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-	clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    height: 6rem;
-    padding: 0 .3rem;
-    position: absolute;
-    right: .1rem;
-    text-align: center;
-    top: .5rem;
-    width: 5.22rem;
+.data-info-box.dataset .card-header .data-info-box-title {
+    font-size: .875rem !important;
+}
+.data-info-box.dataset ul.subtitle-list li {
+    font-size: .75rem;
+}
+.data-info-box.dataset ul.subtitle-list li:not(:last-child) {
+    border-right: 1px solid #cb0c9f;
+    padding-right: .7rem;
+}
+.data-info-box.dataset ul.subtitle-list li span.d-inline-block {
+    color: #344767 !important;
+    font-weight: 600;
 }
 .dataset-details-header img.catalogue-flag {
     border: none !important;
 }
 .data-info-box.dataset img.catalogue-flag {
     border: none !important;
-    display: block;
-    height: 3rem;
-    margin: 0 auto;
-    padding-top: 1rem;
-    width: 4.62rem;
+    left: 1rem;
+    height: 2.5rem;
+    position: absolute;
+    top: .9rem;
+    width: 2.5rem;
+}
+.data-info-box.dataset .card-header div:nth-child(2) {
+    margin-left: -3rem;
+}
+.data-info-box.dataset .card-body {
+    font-size: .75rem;
 }
 
 div[typeof="dcat:Dataset"] .distributions h3 .badge {
@@ -321,103 +367,36 @@ div[typeof="dcat:Dataset"] .distributions h3 .badge {
 
 /* ------------------ */
 
-.data-info-box.dataset[type="iTWO tender"] {
-    border-color: #0077cc !important;
-}
-.data-info-box.dataset[type="iTWO tender"]:hover {
-    background-color: #0077cc20 !important;
-}
-.data-info-box.dataset[type="iTWO tender"] ul.subtitle-list li:first-child {
-    background: #0077cc;
-    color: #fff;
-}
 .dataset-details-header[type="iTWO tender"] img.catalogue-flag,
 .data-info-box.dataset[type="iTWO tender"] img.catalogue-flag {
     content: url('fa-itwo.svg');
 }
-.data-info-box.dataset[type="iTWO tender"] img.catalogue-flag {
-    filter: brightness(0) invert(1);
-}
 
-.data-info-box.dataset[type=PARDOK] {
-    border-color: #022e5b !important;
-}
-.data-info-box.dataset[type=PARDOK]:hover {
-    background-color: #022e5b20 !important;
-}
-.data-info-box.dataset[type=PARDOK] ul.subtitle-list li:first-child {
-    background: #022e5b;
-    color: #fff;
-}
 .dataset-details-header[type=PARDOK] img.catalogue-flag,
 .data-info-box.dataset[type=PARDOK] img.catalogue-flag {
     content: url('logo-agh.svg');
+    filter: brightness(1) invert(1);
 }
 .dataset-details-header[type=PARDOK] img.catalogue-flag {
     filter: brightness(1) invert(1);
 }
 
-.data-info-box.dataset[type=Pressemitteilung],
-.data-info-box.dataset[type=Webseite] {
-    border-color: #f33b1d !important;
-}
-.data-info-box.dataset[type=Pressemitteilung]:hover,
-.data-info-box.dataset[type=Webseite]:hover {
-    background-color: #f33b1d10 !important;
-}
-.data-info-box.dataset[type=Pressemitteilung] ul.subtitle-list li:first-child,
-.data-info-box.dataset[type=Webseite] ul.subtitle-list li:first-child {
-    background: #f33b1d40;
-}
 .dataset-details-header[type=Pressemitteilung] img.catalogue-flag,
 .data-info-box.dataset[type=Pressemitteilung] img.catalogue-flag,
 .dataset-details-header[type=Webseite] img.catalogue-flag,
 .data-info-box.dataset[type=Webseite] img.catalogue-flag {
     content: url('wiki-berlin.svg');
 }
-.data-info-box.dataset[type=Pressemitteilung] ul.subtitle-list li:first-child span {
-    font-size: 0;
-}
-.data-info-box.dataset[type=Pressemitteilung] ul.subtitle-list li:first-child span:after {
-    content: "Presse";
-    font-size: .875rem;
-}
 
-.data-info-box.dataset[type=Twitter] {
-    border-color: #1D9BF0 !important;
-}
-.data-info-box.dataset[type=Twitter]:hover {
-    background-color: #1D9BF010 !important;
-}
-.data-info-box.dataset[type=Twitter] ul.subtitle-list li:first-child {
-    background: #1D9BF0;
-    color: #fff;
-}
 .dataset-details-header[type=Twitter] img.catalogue-flag,
 .data-info-box.dataset[type=Twitter] img.catalogue-flag {
     content: url('fa-twitter.svg');
-    width: 1.8rem;
-}
-.data-info-box.dataset[type=Twitter] img.catalogue-flag {
-    filter: brightness(0) invert(1);
+    width: 2.1rem;
 }
 
-.data-info-box.dataset[type=Tagesspiegel] {
-    border-color: #3cb371 !important;
-}
-.data-info-box.dataset[type=Tagesspiegel]:hover {
-    background-color: #3cb37120 !important;
-}
-.data-info-box.dataset[type=Tagesspiegel] ul.subtitle-list li:first-child {
-    background: #3cb371;
-    color: #fff;
-}
 .dataset-details-header[type=Tagesspiegel] img.catalogue-flag,
 .data-info-box.dataset[type=Tagesspiegel] img.catalogue-flag {
     content: url('fa-newspaper.svg');
-}
-.data-info-box.dataset[type=Tagesspiegel] img.catalogue-flag {
-    filter: brightness(0) invert(1);
 }
 
 div[type=Artikel] .badge,
