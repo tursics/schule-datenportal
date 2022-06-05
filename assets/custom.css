@@ -45,7 +45,6 @@ header nav.navbar .navbar-brand {
     line-height: 1.4rem;
 }
 .datasets section .dropdown-toggle.btn-secondary:focus,
-.datasets section .input-group button:focus,
 .datasets section .input-group-append button:focus,
 .datasets section input.form-control:focus {
     border-color: #e293d3 !important;
@@ -72,7 +71,7 @@ header nav.navbar .navbar-brand {
     background-size: 150%;
 }
 .dataset-facets .list-group-item-action.active:hover {
-        background-color: #fff;
+    background-color: #fff;
     background-image: linear-gradient(310deg,#7928ca60,#ff008060);
     background-position-x: 25%;
     background-size: 150%;
@@ -85,12 +84,69 @@ header nav.navbar .navbar-brand {
     background-size: 150%;
 }
 .dataset-facets .list-group-item-action:focus,
-.dataset-facets .list-group-item-action:hover,
-.dataset-facets button.btn-secondary:hover {
+.dataset-facets .list-group-item-action:hover {
     background-color: #fff;
     background-image: linear-gradient(310deg,#7928ca20,#ff008020);
     background-position-x: 25%;
     background-size: 150%;
+}
+
+/* ------------------ */
+/*  common: buttons   */
+/* ------------------ */
+
+.dataset-facets button.btn-secondary,
+.datasets section .input-group button,
+.pagination > li > button.page-link {
+    background: #fff;
+    border: 1px solid #cb0c9f;
+    border-radius: .5rem;
+    color: #cb0c9f !important;
+    font-size: .75rem;
+    letter-spacing: -0.03rem;
+    padding: 0.5rem 2rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+.pagination > li.active > button.page-link {
+    background-color: #fff !important;
+    background-image: linear-gradient(310deg,#7928ca40,#ff008040);
+    background-position-x: 25%;
+    background-size: 150%;
+    border-color: #cb0c9f !important;
+    color: #cb0c9f !important;
+}
+
+.dataset-facets button.btn-secondary:focus,
+.pagination > li > button.page-link:focus {
+    background-color: #fff !important;
+    border-color: #cb0c9f !important;
+    box-shadow: inset 0 0 0 0.25rem #cb0c9f40;
+    color: #cb0c9f !important;
+}
+
+.datasets section .input-group button:focus {
+    border-color: #e293d3 !important;
+    outline: 0;
+    box-shadow: 0 0 0 2px #e9aede;
+}
+
+.dataset-facets button.btn-secondary:hover,
+.pagination > li > button.page-link:hover {
+    background-color: #fff !important;
+    background-image: linear-gradient(310deg,#7928ca20,#ff008020);
+    background-position-x: 25%;
+    background-size: 150%;
+    border-color: #cb0c9f !important;
+    color: #cb0c9f !important;
+}
+.pagination > li.active > button.page-link:hover {
+    background-color: #fff !important;
+    background-image: linear-gradient(310deg,#7928ca60,#ff008060);
+    background-position-x: 25%;
+    background-size: 150%;
+    border-color: #cb0c9f !important;
+    color: #cb0c9f !important;
 }
 
 /* ------------------ */
@@ -200,23 +256,8 @@ header nav.navbar .nav-link {
 .dataset-facets button.btn-secondary {
     margin-bottom: -1rem;
 }
-.dataset-facets button.btn-secondary,
-.datasets section .input-group button {
-    background: #fff;
-    border: 1px solid #cb0c9f;
-    border-radius: .5rem;
-    color: #cb0c9f;
-    font-size: .75rem;
-    letter-spacing: -0.03rem;
-    padding: 0.5rem 2rem;
-    text-align: center;
-    text-transform: uppercase;
-}
 .datasets section .input-group .input-group-append button svg {
     font-size: .875rem !important;
-}
-.dataset-facets button.btn-secondary:focus {
-    box-shadow: inset 0 0 0 0.25rem #cb0c9f40;
 }
 
 /* ------------------ */
@@ -363,6 +404,23 @@ header nav.navbar .nav-link {
 
 div[typeof="dcat:Dataset"] .distributions h3 .badge {
     display: none;
+}
+
+/* ------------------ */
+/* ------------------ */
+
+.pagination > li > button.page-link {
+    border-radius: 0;
+    padding: .5rem .75rem;
+}
+.pagination > li > button.page-link.prev-button {
+    border-radius: .5rem 0 0 .5rem;
+}
+.pagination > li.active > button.page-link {
+    font-weight: 600;
+}
+.pagination > li > button.page-link.next-button {
+    border-radius: 0 .5rem .5rem 0;
 }
 
 /* ------------------ */
