@@ -11,7 +11,8 @@ header nav.navbar,
 .datasets section .filters-group,
 .datasets section > div:nth-child(2),
 .datasets section > div:nth-child(3),
-.dataset-facets .facet-field .list-group {
+.dataset-facets .facet-field .list-group,
+div[typeof="dcat:Dataset"] > div:first-child > div.row:first-child {
     box-shadow: 0 .3rem .7rem 0 rgba(0,0,0,.1) !important;
 }
 
@@ -156,7 +157,8 @@ header nav.navbar .navbar-brand {
 .datasets section .filters-group,
 .dataset-facets .facet-field .list-group,
 .datasets section > div:nth-child(2),
-.datasets section > div:nth-child(3) {
+.datasets section > div:nth-child(3),
+div[typeof="dcat:Dataset"] > div:first-child > div.row:first-child {
     background: #fff;
     border-radius: 1rem;
 }
@@ -407,6 +409,7 @@ div[typeof="dcat:Dataset"] .distributions h3 .badge {
 }
 
 /* ------------------ */
+/*     pagination     */
 /* ------------------ */
 
 .pagination > li > button.page-link {
@@ -421,6 +424,19 @@ div[typeof="dcat:Dataset"] .distributions h3 .badge {
 }
 .pagination > li > button.page-link.next-button {
     border-radius: 0 .5rem .5rem 0;
+}
+
+/* ------------------ */
+/* ------------------ */
+
+div[typeof="dcat:Dataset"] {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+div[typeof="dcat:Dataset"] > div:first-child > div.row:first-child {
+    margin: 0;
+    padding: 1rem;
 }
 
 /* ------------------ */
