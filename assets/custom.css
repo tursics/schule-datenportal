@@ -77,12 +77,14 @@ header nav.navbar .navbar-brand {
     background-position-x: 25%;
     background-size: 150%;
 }
-.dataset-facets .list-group-item-action.active,
-.datasets section > .data-info-box.dataset:hover a {
+.dataset-facets .list-group-item-action.active {
     background-color: #fff;
     background-image: linear-gradient(310deg,#7928ca40,#ff008040);
     background-position-x: 25%;
     background-size: 150%;
+}
+.datasets section > .data-info-box.dataset:hover a {
+    border-color: #cb0c9f;
 }
 .dataset-facets .list-group-item-action:focus,
 .dataset-facets .list-group-item-action:hover {
@@ -355,13 +357,17 @@ header nav.navbar .nav-link {
     border-radius: 0 0 1rem 1rem;
 }
 .datasets section > .data-info-box.dataset a {
-    background-image: linear-gradient(310deg,#14172710,#3a416f10);
+    border: 1px solid #fff;
 }
 .datasets section > .data-info-box.dataset a:first-child {
+    border-bottom: none;
     border-radius: .75rem .75rem 0 0;
+    box-shadow: 0 -.3rem .7rem 0 rgba(0,0,0,.1);
 }
 .datasets section > .data-info-box.dataset a:last-child {
     border-radius: 0 0 .75rem .75rem;
+    border-top: none;
+    box-shadow: 0 .3rem .7rem 0 rgba(0,0,0,.1);
 }
 
 /* ------------------ */
