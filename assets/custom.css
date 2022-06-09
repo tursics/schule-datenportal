@@ -36,7 +36,7 @@ header nav.navbar .navbar-brand {
     font-weight: 700 !important;
 }
 
-.datasets section .dropdown-toggle.btn-secondary,
+.dropdown-toggle.btn-secondary,
 .datasets section input.form-control {
     background: #fff;
     border-color: #d2d6da !important;
@@ -45,7 +45,7 @@ header nav.navbar .navbar-brand {
     font-weight: 400;
     line-height: 1.4rem;
 }
-.datasets section .dropdown-toggle.btn-secondary:focus,
+.dropdown-toggle.btn-secondary:focus,
 .datasets section .input-group-append button:focus,
 .datasets section input.form-control:focus {
     border-color: #e293d3 !important;
@@ -56,6 +56,9 @@ header nav.navbar .navbar-brand {
     border-color: #d2d6da !important;
 }
 .dropdown-menu {
+    font-size: .875rem;
+}
+.dropdown-menu .btn {
     font-size: .875rem;
 }
 
@@ -281,7 +284,7 @@ header nav.navbar .nav-link {
     justify-content: right !important;
 }
 
-.datasets section .dropdown-toggle.btn-secondary,
+.dropdown-toggle.btn-secondary,
 .datasets section input.form-control {
     border: 1px solid transparent;
     border-radius: .5rem;
@@ -436,8 +439,8 @@ div[typeof="dcat:Dataset"] .distributions h3 .badge {
 /* ------------------ */
 
 div[typeof="dcat:Dataset"] {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 
 div[typeof="dcat:Dataset"] > div:first-child > div.row:first-child {
