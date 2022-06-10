@@ -139,6 +139,28 @@ input.form-control:hover,
     color: #cb0c9f !important;
 }
 
+.link-dark {
+    color: #cb0c9f;
+}
+.link-dark svg {
+    color: #cb0c9f !important;
+}
+.link-dark:hover {
+    background-color: #fff !important;
+    background-image: linear-gradient(310deg,#7928ca20,#ff008020);
+    background-position-x: 25%;
+    background-size: 150%;
+    color: #cb0c9f;
+}
+.link-dark:hover svg {
+    color: #cb0c9f !important;
+}
+.link-dark:focus {
+    box-shadow: 0 0 0 0.25rem #cb0c9f40;
+    color: #cb0c9f !important;
+    outline: 0;
+}
+
 /* ------------------ */
 /*   common: cards    */
 /* ------------------ */
