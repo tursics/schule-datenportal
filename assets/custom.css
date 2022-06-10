@@ -39,25 +39,6 @@ header nav.navbar .navbar-brand {
     font-weight: 700 !important;
 }
 
-.dropdown-toggle.btn-secondary,
-.datasets section input.form-control {
-    background: #fff;
-    border-color: #d2d6da !important;
-    color: #495057;
-    font-size: .875rem;
-    font-weight: 400;
-    line-height: 1.4rem;
-}
-.dropdown-toggle.btn-secondary:focus,
-.datasets section .input-group-append button:focus,
-.datasets section input.form-control:focus {
-    border-color: #e293d3 !important;
-    outline: 0;
-    box-shadow: 0 0 0 2px #e9aede;
-}
-.datasets section .input-group-append button {
-    border-color: #d2d6da !important;
-}
 .dropdown-menu {
     font-size: .875rem;
 }
@@ -104,18 +85,22 @@ header nav.navbar .navbar-brand {
 /*  common: buttons   */
 /* ------------------ */
 
-.dataset-facets button.btn-secondary,
-.datasets section .input-group button,
+.btn.btn-secondary,
+input.form-control,
 .pagination > li > button.page-link {
     background: #fff;
     border: 1px solid #cb0c9f;
     border-radius: .5rem;
     color: #cb0c9f !important;
-    font-size: .75rem;
+    font-size: .875rem;
+    font-weight: 400;
     letter-spacing: -0.03rem;
-    padding: 0.5rem 2rem;
+    line-height: 1.4rem;
+    padding: .5rem .75rem;
     text-align: center;
-    text-transform: uppercase;
+}
+input.form-control {
+    text-align: left;
 }
 .pagination > li.active > button.page-link {
     background-color: #fff !important;
@@ -126,7 +111,8 @@ header nav.navbar .navbar-brand {
     color: #cb0c9f !important;
 }
 
-.dataset-facets button.btn-secondary:focus,
+.btn.btn-secondary:focus,
+input.form-control:focus,
 .pagination > li > button.page-link:focus {
     background-color: #fff !important;
     border-color: #cb0c9f !important;
@@ -134,13 +120,8 @@ header nav.navbar .navbar-brand {
     color: #cb0c9f !important;
 }
 
-.datasets section .input-group button:focus {
-    border-color: #e293d3 !important;
-    outline: 0;
-    box-shadow: 0 0 0 2px #e9aede;
-}
-
-.dataset-facets button.btn-secondary:hover,
+.btn.btn-secondary:hover,
+input.form-control:hover,
 .pagination > li > button.page-link:hover {
     background-color: #fff !important;
     background-image: linear-gradient(310deg,#7928ca20,#ff008020);
@@ -175,7 +156,6 @@ div[typeof="dcat:Dataset"] .distributions {
 }
 .datasets section .input-group .input-group-append button {
     border-radius: 0 .5rem .5rem 0;
-    padding: .5rem;
 }
 
 /* ------------------ */
@@ -266,11 +246,12 @@ header nav.navbar .nav-link {
     letter-spacing: -0.03rem;
     text-transform: uppercase;
 }
-.dataset-facets button.btn-secondary {
+.dataset-facets .btn.btn-secondary {
     margin-bottom: -1rem;
 }
 .datasets section .input-group .input-group-append button svg {
     font-size: .875rem !important;
+    vertical-align: middle;
 }
 
 /* ------------------ */
@@ -288,13 +269,6 @@ header nav.navbar .nav-link {
 
 .datasets section .filters-group > .row:first-child > .col {
     justify-content: right !important;
-}
-
-.dropdown-toggle.btn-secondary,
-.datasets section input.form-control {
-    border: 1px solid transparent;
-    border-radius: .5rem;
-    padding: .5rem .75rem;
 }
 
 .datasets section > div:nth-child(2) {
