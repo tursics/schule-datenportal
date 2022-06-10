@@ -490,6 +490,13 @@ div[typeof="dcat:Dataset"] .distributions ul {
     margin-bottom: 0;
     padding: 0;
 }
+div[typeof="dcat:Dataset"] .distributions li small {
+    font-size: .75rem;
+}
+div[typeof="dcat:Dataset"] .distributions li > span:first-child,
+div[typeof="dcat:Dataset"] .distributions li span.text-end {
+    margin: auto 0 !important;
+}
 
 /* ------------------ */
 
