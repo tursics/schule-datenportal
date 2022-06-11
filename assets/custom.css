@@ -16,7 +16,8 @@ div[typeof="dcat:Dataset"] > div:first-child > div.row:first-child,
 div[typeof="dcat:Dataset"] > div:first-child > div.row:nth-child(3),
 div[typeof="dcat:Dataset"] .description,
 div[typeof="dcat:Dataset"] .distributions,
-div[typeof="dcat:Dataset"] .keywords {
+div[typeof="dcat:Dataset"] .keywords,
+div[typeof="dcat:Dataset"] .info {
     box-shadow: 0 .3rem .7rem 0 rgba(0,0,0,.1) !important;
 }
 
@@ -104,6 +105,9 @@ a > .rounded-pill,
 input.form-control {
     text-align: left;
 }
+a > .rounded-pill {
+    line-height: 1rem;
+}
 .pagination > li.active > button.page-link {
     background-color: #fff !important;
     background-image: linear-gradient(310deg,#7928ca40,#ff008040) !important;
@@ -177,7 +181,8 @@ div[typeof="dcat:Dataset"] > div:first-child > div.row:first-child,
 div[typeof="dcat:Dataset"] > div:first-child > div.row:nth-child(3),
 div[typeof="dcat:Dataset"] .description,
 div[typeof="dcat:Dataset"] .distributions,
-div[typeof="dcat:Dataset"] .keywords {
+div[typeof="dcat:Dataset"] .keywords,
+div[typeof="dcat:Dataset"] .info {
     background: #fff;
     border-radius: 1rem;
 }
@@ -504,9 +509,32 @@ div[typeof="dcat:Dataset"] .distributions li span.text-end {
 }
 
 div[typeof="dcat:Dataset"] .keywords {
+    border-radius: 1rem 1rem 0 0;
     font-size: .75rem;
     margin: 2rem 0 0 0 !important;
+    padding: 1rem 1rem 0 1rem;
+}
+
+div[typeof="dcat:Dataset"] .info {
+    border-radius: 0 0 1rem 1rem;
+    font-size: .75rem;
+    margin: 0 !important;
     padding: 1rem;
+}
+div[typeof="dcat:Dataset"] .info > .row > div > .row > div:nth-child(1) {
+    width: 2.5rem;
+}
+div[typeof="dcat:Dataset"] .info > .row > div > .row > div:nth-child(2) {
+    padding-bottom: 0 !important;
+    padding-left: 0;
+}
+div[typeof="dcat:Dataset"] .info > .row > div > .row > div:nth-child(3) table {
+    background: #fff !important;
+    margin-bottom: 0;
+    margin-left: 1.75rem;
+}
+div[typeof="dcat:Dataset"] .info > .row > div > .row > div:nth-child(3) table tr td:nth-child(2) {
+    font-weight: 800;
 }
 
 /* ------------------ */
