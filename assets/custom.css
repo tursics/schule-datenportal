@@ -119,6 +119,8 @@ a > .rounded-pill {
 }
 
 .btn.btn-secondary:focus,
+.navbar .nav-link:focus,
+.navbar .navbar-brand:focus,
 input.form-control:focus,
 a > .rounded-pill:focus,
 .pagination > li > button.page-link:focus {
@@ -126,9 +128,12 @@ a > .rounded-pill:focus,
     border-color: #cb0c9f !important;
     box-shadow: inset 0 0 0 0.25rem #cb0c9f40;
     color: #cb0c9f !important;
+    outline: 0;
 }
 
 .btn.btn-secondary:hover,
+.navbar .nav-link:hover,
+.navbar .navbar-brand:hover,
 input.form-control:hover,
 a > .rounded-pill:hover,
 .pagination > li > button.page-link:hover {
@@ -152,6 +157,18 @@ a > .rounded-pill:hover,
     border: none;
     line-height: 1rem;
     padding: 0 .5rem;
+}
+.navbar .nav-link.active {
+    position: relative;
+}
+.navbar .nav-link.active:before {
+    border-bottom: .2rem solid #cb0c9f;
+    border-radius: 1rem;
+    bottom: -.75rem;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
 }
 
 .link-dark {
@@ -518,6 +535,24 @@ header nav.navbar .nav-link {
     font-size: .75rem;
     margin: 2rem 0 0 0 !important;
     padding: 1rem 1rem 0 1rem;
+}
+.dataset .keywords::before {
+    content: 'Schlüsselwörter';
+    font-size: 1rem;
+    font-weight: 700;
+    padding: .5rem 0 1.5rem .75rem;
+}
+.dataset .keywords > .row {
+    margin-top: 1rem;
+}
+.dataset .keywords .row .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+.dataset .keywords span {
+    padding-left: .33rem;
+    padding-right: .33rem;
+    width: fit-content;
 }
 
 .dataset .info {

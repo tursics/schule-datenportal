@@ -3,6 +3,8 @@ CONFIG_APP_HEADER_LOGO_TEXT = CONFIG_APP_TITLE;
 CONFIG_APP_AUTH_SERVICE = 'zero';
 CONFIG_APP_ROUTER_REDIRECT_ROOT_TO = 'Welcome';
 
+CONFIG_APP_ENABLE_DARK_MODE = true;
+
 CONFIG_APP_LOCALE = 'de';
 CONFIG_APP_LOCALE_FALLBACK = 'en';
 CONFIG_APP_LOAD_LANGUAGE_1 = 'de';
@@ -97,7 +99,7 @@ function transformData(dataset) {
             });
         }
     }
-    ds.modificationDate = dataset.modDate ? dataset.modDate : dataset.date;
+    ds.modificationDate = dataset.modDate ? dataset.modDate : null;
     ds.publisher = {
         type: 'organization',
         name: undefined,
@@ -400,7 +402,7 @@ class GoogleSpreadsheetDataService {
     }
 
     sortRelevance(a, b) {
-        return new Date(b.modificationDate) - new Date(a.modificationDate);
+        return new Date(b.modificationDate || b.releaseDate) - new Date(a.modificationDate || a.releaseDate);
     }
 
     sortTitleAsc(a, b) {
@@ -412,7 +414,7 @@ class GoogleSpreadsheetDataService {
     }
 
     sortModificationDate(a, b) {
-        return new Date(b.modificationDate) - new Date(a.modificationDate);
+        return new Date(b.modificationDate || b.releaseDate) - new Date(a.modificationDate || a.releaseDate);
     }
 
     sortReleaseDate(a, b) {
