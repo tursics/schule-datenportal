@@ -44,6 +44,7 @@ CONFIG_APP_LANGUAGES = {
 
 CONFIG_APP_ROUTER_BASE = '/schule-datenportal/';
 CONFIG_APP_ROUTER_LIB_BASE = 'https://unpkg.com/peacock-user-ui@latest/dist/';
+CONFIG_APP_ROUTER_MODE = 'hash';
 
 CONFIG_APP_HEADER_NAV_1_URL = '/list';
 CONFIG_APP_HEADER_NAV_1_TITLE = 'Liste';

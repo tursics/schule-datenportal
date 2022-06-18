@@ -396,14 +396,7 @@ header nav.navbar .nav-link {
 }
 .datasets section .items-group .dataset a {
     border: 1px solid #fff;
-}
-.datasets section .items-group .dataset a:first-child {
-    border-bottom: none;
-    border-radius: .75rem .75rem 0 0;
-}
-.datasets section .items-group .dataset a:last-child {
-    border-radius: 0 0 .75rem .75rem;
-    border-top: none;
+    border-radius: .75rem;
 }
 
 /* ------------------ */
