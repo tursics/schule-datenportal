@@ -73,7 +73,7 @@ header nav.navbar .navbar-brand {
     background-position-x: 25%;
     background-size: 150%;
 }
-.datasets section .items-group .dataset:hover a {
+.datasets section .items-group .dataset a:hover {
     border-color: #cb0c9f !important;
 }
 .dataset-facets .list-group-item-action:focus,
@@ -123,12 +123,16 @@ a > .rounded-pill {
 .navbar .navbar-brand:focus,
 input.form-control:focus,
 a > .rounded-pill:focus,
-.pagination > li > button.page-link:focus {
+.pagination > li > button.page-link:focus,
+.datasets section .items-group .dataset a:focus {
     background-color: #fff !important;
     border-color: #cb0c9f !important;
     box-shadow: inset 0 0 0 0.25rem #cb0c9f40;
     color: #cb0c9f !important;
     outline: 0;
+}
+.datasets section .items-group .dataset a:focus {
+    color: inherit !important;
 }
 
 .btn.btn-secondary:hover,
@@ -386,17 +390,17 @@ header nav.navbar .nav-link {
 .datasets section .items-group .dataset {
     background: #fff;
     border: none !important;
-    border-bottom: 1px solid #222 !important;
+    border-bottom: 1px solid #ccc !important;
     border-radius: 0;
+    margin: 0 -1rem;
     margin-top: 0 !important;
-    padding: .5rem 0;
+    padding: 0;
 }
 .datasets section .items-group .dataset:last-child {
     border-bottom: none !important;
 }
 .datasets section .items-group .dataset a {
     border: 1px solid #fff;
-    border-radius: .75rem;
 }
 
 /* ------------------ */
