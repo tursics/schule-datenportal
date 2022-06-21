@@ -1,27 +1,27 @@
-Bezirk;Schulnr;Schulname
-Mitte;01G02;Papageno-Grundschule
-Mitte;01G32;Carl-Kraemer-Grundschule
-Mitte;01G42;Anna-Lindh-Grundschule
-Mitte;01Y08;Lessing-Gymnasium
-Friedrichshain-Kreuzberg;02Y05;Dathe-Gymnasium
-Pankow;03G20;Moselviertel-Grundschule
-Pankow;03G45;Grundschule im Hofgarten
-Pankow;03K11;Wilhelm-von-HumboldtGemeinschaftsschule
-Pankow;03Y03;Käthe-Kollwitz Gymnasium
-Pankow;03Y08;Carl-von-Ossietzky-Gymnasium
-Pankow;03Y10;Rosa-Luxemburg-Gymnasium
-Spandau;05G07;Lynar-Grundschule
-Spandau;05G19;GS am Ritterfeld
-Spandau;05G27;Peter-Härtling-Grundschule
-Spandau;05Y01;Freiherr-vom-Stein-Gymnasium
-Steglitz-Zehlendorf;06Y03;Arndt-Gymnasium
-Steglitz-Zehlendorf;06Y06;Beethoven-Gymnasium
-Neukölln;08Y01;Albrecht-Dürer-Gymnasium
-Lichtenberg;11G11;Bernhard-Grzimek-Grundschule
-Lichtenberg;11G28;Feldmark-Grundschule
-Lichtenberg;11G29;Matibi-Grundschule
-Lichtenberg;11K10;Grüner Campus Malchow
-Lichtenberg;11Y09;Barnim-Gymnasium
-Reinickendorf;12G13;Franz-Marc-Grundschule
-Reinickendorf;12G24;Renée-Sintenis-Grundschule
-Reinickendorf;12Y03;Humboldt-Gymnasium
+Bezirk,Schulnr,Schulname
+Mitte,01G02,Papageno-Grundschule
+Mitte,01G32,Carl-Kraemer-Grundschule
+Mitte,01G42,Anna-Lindh-Grundschule
+Mitte,01Y08,Lessing-Gymnasium
+Friedrichshain-Kreuzberg,02Y05,Dathe-Gymnasium
+Pankow,03G20,Moselviertel-Grundschule
+Pankow,03G45,Grundschule im Hofgarten
+Pankow,03K11,Wilhelm-von-HumboldtGemeinschaftsschule
+Pankow,03Y03,Käthe-Kollwitz Gymnasium
+Pankow,03Y08,Carl-von-Ossietzky-Gymnasium
+Pankow,03Y10,Rosa-Luxemburg-Gymnasium
+Spandau,05G07,Lynar-Grundschule
+Spandau,05G19,GS am Ritterfeld
+Spandau,05G27,Peter-Härtling-Grundschule
+Spandau,05Y01,Freiherr-vom-Stein-Gymnasium
+Steglitz-Zehlendorf,06Y03,Arndt-Gymnasium
+Steglitz-Zehlendorf,06Y06,Beethoven-Gymnasium
+Neukölln,08Y01,Albrecht-Dürer-Gymnasium
+Lichtenberg,11G11,Bernhard-Grzimek-Grundschule
+Lichtenberg,11G28,Feldmark-Grundschule
+Lichtenberg,11G29,Matibi-Grundschule
+Lichtenberg,11K10,Grüner Campus Malchow
+Lichtenberg,11Y09,Barnim-Gymnasium
+Reinickendorf,12G13,Franz-Marc-Grundschule
+Reinickendorf,12G24,Renée-Sintenis-Grundschule
+Reinickendorf,12Y03,Humboldt-Gymnasium
