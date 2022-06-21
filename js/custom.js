@@ -64,7 +64,7 @@ CONFIG_APP_ROUTER_ROUTE_3_PATH = '/license/other-closed';
 CONFIG_APP_ROUTER_ROUTE_3_FILE = `${CONFIG_APP_ROUTER_BASE}pages/license-other-closed.html`;
 CONFIG_APP_ROUTER_ROUTE_3_REQUIRES_AUTH = false;
 
-function transformData(dataset) {
+function transformData(dataset, sameID) {
     var ds = {};
 
     ds.catalog = {
@@ -120,64 +120,77 @@ function transformData(dataset) {
         status: undefined,
     };
     
-    const distribution = {};
-    if (dataset.docDescription) {
-        distribution.description = {};
-        distribution.description[CONFIG_APP_LOCALE] = dataset.docDescription;
-    } else {
-        distribution.description = {
-            en: 'No description given',
+    sameID.forEach(sameDataset => {
+        const distribution = {};
+        if (sameDataset.docDescription) {
+            distribution.description = {};
+            distribution.description[CONFIG_APP_LOCALE] = sameDataset.docDescription;
+        } else {
+            distribution.description = {
+                en: 'No description given',
+            };
+        }
+        distribution.downloadUrls = [];
+        distribution.format = {
+            id: sameDataset.docFormat,
+            title: sameDataset.docFormat,
         };
+        if (['Tweet','Artikel'].indexOf(distribution.format.id) !== -1) {
+            distribution.accessUrl = sameDataset.docURL;
+        } else {
+            distribution.downloadUrls.push(sameDataset.docURL);
+        }
+        distribution.id = 'dist.id';
+        if (sameDataset.docLicense) {
+            distribution.licence = {
+                id: sameDataset.docLicense,
+                title: sameDataset.docLicense,
+                resource: undefined,
+                description: undefined,
+                la_url: undefined,
+            };
+        } else if (sameDataset.license) {
+            distribution.licence = {
+                id: sameDataset.license,
+                title: sameDataset.license,
+                resource: 'resouce',
+                description: undefined,
+                la_url: undefined,
+            };
+        } else {
+            distribution.licence = {
+                id: undefined,
+                title: undefined,
+                resource: undefined,
+                description: undefined,
+                la_url: undefined,
+            };
+        }
+        if (distribution.licence.id === 'officialWork') {
+            distribution.licence.title = 'Amtliches Werk, lizenzfrei';
+            distribution.licence.resource = 'http://www.gesetze-im-internet.de/urhg/__5.html';
+        } else if (distribution.licence.id === 'other-closed') {
+            distribution.licence.title = 'Andere geschlossene Lizenz';
+            distribution.licence.resource = '/license/other-closed';
+        }
+        distribution.modificationDate = sameDataset.docModDate ? sameDataset.docModDate : ds.modificationDate;
+        distribution.releaseDate = sameDataset.docDate ? sameDataset.docDate : ds.releaseDate;
+        distribution.title = {};
+        distribution.title[CONFIG_APP_LOCALE] = sameDataset.docFile;
+        ds.distributions.push(distribution);
+        ds.distributionFormats.push(distribution.format);
+
+        if (sameDataset.docModDate && (new Date(sameDataset.docModDate) > new Date(ds.modificationDate))) {
+            ds.modificationDate = sameDataset.docModDate;
+        }
+        if (sameDataset.docDate && (new Date(sameDataset.docDate) > new Date(ds.modificationDate))) {
+            ds.modificationDate = sameDataset.docDate;
+        }
+    });
+
+    if (JSON.stringify(dataset) !== JSON.stringify(sameID[0])) {
+        ds.id = '';
     }
-    distribution.downloadUrls = [];
-    distribution.format = {
-        id: dataset.docFormat,
-        title: dataset.docFormat,
-    };
-    if (['Tweet','Artikel'].indexOf(distribution.format.id) !== -1) {
-        distribution.accessUrl = dataset.docURL;
-    } else {
-        distribution.downloadUrls.push(dataset.docURL);
-    }
-    distribution.id = 'dist.id';
-    if (dataset.docLicense) {
-        distribution.licence = {
-            id: dataset.docLicense,
-            title: dataset.docLicense,
-            resource: undefined,
-            description: undefined,
-            la_url: undefined,
-        };
-    } else if (dataset.license) {
-        distribution.licence = {
-            id: dataset.license,
-            title: dataset.license,
-            resource: 'resouce',
-            description: undefined,
-            la_url: undefined,
-        };
-    } else {
-        distribution.licence = {
-            id: undefined,
-            title: undefined,
-            resource: undefined,
-            description: undefined,
-            la_url: undefined,
-        };
-    }
-    if (distribution.licence.id === 'officialWork') {
-        distribution.licence.title = 'Amtliches Werk, lizenzfrei';
-        distribution.licence.resource = 'http://www.gesetze-im-internet.de/urhg/__5.html';
-    } else if (distribution.licence.id === 'other-closed') {
-        distribution.licence.title = 'Andere geschlossene Lizenz';
-        distribution.licence.resource = '/license/other-closed';
-    }
-    distribution.modificationDate = dataset.docModDate ? dataset.docModDate : ds.modificationDate;
-    distribution.releaseDate = dataset.docDate ? dataset.docDate : ds.releaseDate;
-    distribution.title = {};
-    distribution.title[CONFIG_APP_LOCALE] = dataset.docFile;
-    ds.distributions.push(distribution);
-    ds.distributionFormats.push(distribution.format);
 
     return ds;
 }
@@ -375,7 +388,7 @@ class GoogleSpreadsheetDataService {
                         };
                         result.count = result.results.length;
 
-                        resolve(result.results.map(dataset => transformData(dataset)).filter(dataset => dataset.id));
+                        resolve(result.results.map(dataset => transformData(dataset, result.results.filter(filtered => filtered.id === dataset.id))).filter(dataset => dataset.id));
                     } else {
                         reject(request.statusText);
                     }
