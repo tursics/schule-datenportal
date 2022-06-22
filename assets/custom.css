@@ -3,8 +3,13 @@
 /* ------------------ */
 
 body {
-    background-color: #f8f9fa!important;
+    background-color: #f8f8f8!important;
     font-weight: 400;
+    transition: background-color 400ms, border-color 400ms, color 400ms;
+}
+body.dark-mode {
+    background-color: #101828!important;
+    color: #90a0b8;
 }
 
 header nav.navbar,
@@ -21,25 +26,51 @@ header nav.navbar,
 .dataset .info {
     box-shadow: 0 .3rem .7rem 0 rgba(0,0,0,.1) !important;
 }
+.dark-mode header nav.navbar,
+.dark-mode .datasets section .filters-group,
+.dark-mode .datasets section .count-group,
+.dark-mode .datasets section .selected-facets-group,
+.dark-mode .datasets section .items-group,
+.dark-mode .dataset-facets .facet-field .list-group,
+.dark-mode .dataset .details-top .actions-row,
+.dark-mode .dataset .details-top .header-row,
+.dark-mode .dataset .description,
+.dark-mode .dataset .distributions,
+.dark-mode .dataset .keywords,
+.dark-mode .dataset .info {
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 15%) !important;
+}
 
 header nav.navbar .nav-link {
-    color: #344767;
+    color: #304868;
     font-size: .875rem;
     font-weight: 400;
+}
+.dark-mode header nav.navbar .nav-link {
+    color: #90a0b8 !important;
 }
 
 .dataset-facets .list-group-item,
 .datasets section .count-group,
 .datasets section .selected-facets-group {
-    color: #344767;
+    color: #304868;
     font-size: .875rem;
     font-weight: 600;
 }
+.dark-mode .dataset-facets .list-group-item,
+.dark-mode .datasets section .count-group,
+.dark-mode .datasets section .selected-facets-group {
+    background-color: #202838;
+    color: #90a0b8;
+}
 
 header nav.navbar .navbar-brand {
-    color: #344767;
+    color: #304868;
     font-size: .875rem;
     font-weight: 700 !important;
+}
+.dark-mode header nav.navbar .navbar-brand {
+    color: #90a0b8;
 }
 
 .dropdown-menu {
@@ -54,6 +85,11 @@ header nav.navbar .navbar-brand {
     background: #cb0c9f !important;
     border-color: #cb0c9f !important;
     color: #fff !important;
+}
+.dark-mode .dataset-facets .list-group-item-action.active .facet-count,
+.dark-mode .datasets section .selected-facets-group .badge {
+    background-color: #f070b8 !important;
+    border-color: #f070b8 !important;
 }
 
 .dataset-facets .facet-header-item {
@@ -73,15 +109,36 @@ header nav.navbar .navbar-brand {
     background-position-x: 25%;
     background-size: 150%;
 }
-.datasets section .items-group .dataset a:hover {
-    border-color: #cb0c9f !important;
-}
 .dataset-facets .list-group-item-action:focus,
 .dataset-facets .list-group-item-action:hover {
     background-color: #fff;
     background-image: linear-gradient(310deg,#7928ca20,#ff008020);
     background-position-x: 25%;
     background-size: 150%;
+}
+.dark-mode .dataset-facets .facet-header-item {
+    background-image: linear-gradient(310deg,#981858,#f070b8);
+}
+.dark-mode .dataset-facets .list-group-item-action.active:hover {
+    background-color: #101828;
+    background-image: linear-gradient(310deg,#981858f0,#f070b8f0);
+}
+.dark-mode .dataset-facets .list-group-item-action.active {
+    background-color: #101828;
+    background-image: linear-gradient(310deg,#981858b0,#f070b8b0);
+}
+.dark-mode .dataset-facets .list-group-item-action:focus,
+.dark-mode .dataset-facets .list-group-item-action:hover {
+    background-color: #101828;
+    background-image: linear-gradient(310deg,#98185880,#f070b880);
+    color: #e0e8f0;
+}
+
+.datasets section .items-group .dataset a:hover {
+    border-color: #cb0c9f40 !important;
+}
+.dark-mode .datasets section .items-group .dataset a:hover {
+    border-color: #f070b8a0 !important;
 }
 
 /* ------------------ */
@@ -103,6 +160,17 @@ a > .rounded-pill,
     padding: .5rem .75rem;
     text-align: center;
 }
+.dark-mode .btn.btn-secondary,
+.dark-mode input.form-control,
+.dark-mode a > .rounded-pill,
+.dark-mode .pagination > li > button.page-link {
+    background-color: #202838 !important;
+    border-color: #f070b8;
+    color: #90a0b8 !important;
+}
+.dark-mode input.form-control::placeholder {
+    color: #90a0b8 !important;
+}
 input.form-control {
     text-align: left;
 }
@@ -116,6 +184,12 @@ a > .rounded-pill {
     background-size: 150% !important;
     border-color: #cb0c9f !important;
     color: #cb0c9f !important;
+}
+.dark-mode .pagination > li.active > button.page-link {
+    background-color: #101828 !important;
+    background-image: linear-gradient(310deg,#981858b0,#f070b8b0) !important;
+    border-color: #f070b8 !important;
+    color: #e0e8f0 !important;
 }
 
 .btn.btn-secondary:focus,
@@ -134,6 +208,18 @@ a > .rounded-pill:focus,
 .datasets section .items-group .dataset a:focus {
     color: inherit !important;
 }
+.dark-mode .btn.btn-secondary:focus,
+.dark-mode .navbar .nav-link:focus,
+.dark-mode .navbar .navbar-brand:focus,
+.dark-mode input.form-control:focus,
+.dark-mode a > .rounded-pill:focus,
+.dark-mode .pagination > li > button.page-link:focus,
+.dark-mode .datasets section .items-group .dataset a:focus {
+    background-color: #202838 !important;
+    border-color: #f070b8 !important;
+    box-shadow: inset 0 0 0 0.125rem #90a0b8;
+    color: #90a0b8 !important;
+}
 
 .btn.btn-secondary:hover,
 .navbar .nav-link:hover,
@@ -148,6 +234,17 @@ a > .rounded-pill:hover,
     border-color: #cb0c9f !important;
     color: #cb0c9f !important;
 }
+.dark-mode .btn.btn-secondary:hover,
+.dark-mode .navbar .nav-link:hover,
+.dark-mode .navbar .navbar-brand:hover,
+.dark-mode input.form-control:hover,
+.dark-mode a > .rounded-pill:hover,
+.dark-mode .pagination > li > button.page-link:hover {
+    background-color: #101828 !important;
+    background-image: linear-gradient(310deg,#98185880,#f070b880) !important;
+    border-color: #f070b8 !important;
+    color: #e0e8f0 !important;
+}
 .pagination > li.active > button.page-link:hover {
     background-color: #fff !important;
     background-image: linear-gradient(310deg,#7928ca60,#ff008060) !important;
@@ -155,6 +252,12 @@ a > .rounded-pill:hover,
     background-size: 150% !important;
     border-color: #cb0c9f !important;
     color: #cb0c9f !important;
+}
+.dark-mode .pagination > li.active > button.page-link:hover {
+    background-color: #101828 !important;
+    background-image: linear-gradient(310deg,#981858f0,#f070b8f0) !important;
+    border-color: #f070b8 !important;
+    color: #e0e8f0 !important;
 }
 
 .navbar .btn.btn-secondary {
@@ -174,12 +277,21 @@ a > .rounded-pill:hover,
     position: absolute;
     right: 0;
 }
+.dark-mode .navbar .nav-link.active:before {
+    border-bottom-color: #f070b8;
+}
 
 .link-dark {
     color: #cb0c9f;
 }
+.dark-mode .link-dark {
+    color: #f070b8;
+}
 .link-dark svg {
     color: #cb0c9f !important;
+}
+.dark-mode .link-dark svg {
+    color: #f070b8 !important;
 }
 .link-dark:hover {
     background-color: #fff !important;
@@ -188,13 +300,25 @@ a > .rounded-pill:hover,
     background-size: 150%;
     color: #cb0c9f;
 }
+.dark-mode .link-dark:hover {
+    background-color: #101828 !important;
+    background-image: linear-gradient(310deg,#98185880,#f070b880);
+    color: #e0e8f0;
+}
 .link-dark:hover svg {
     color: #cb0c9f !important;
+}
+.dark-mode .link-dark:hover svg {
+    color: #f070b8 !important;
 }
 .link-dark:focus {
     box-shadow: 0 0 0 0.25rem #cb0c9f40;
     color: #cb0c9f !important;
     outline: 0;
+}
+.dark-mode .link-dark:focus {
+    box-shadow: inset 0 0 0 0.125rem #90a0b8;
+    color: #f070b8 !important;
 }
 
 /* ------------------ */
@@ -214,6 +338,19 @@ a > .rounded-pill:hover,
 .dataset .info {
     background: #fff;
     border-radius: 1rem;
+}
+.dark-mode .datasets section .filters-group,
+.dark-mode .dataset-facets .facet-field .list-group,
+.dark-mode .datasets section .count-group,
+.dark-mode .datasets section .selected-facets-group,
+.dark-mode .datasets section .items-group,
+.dark-mode .dataset .details-top .actions-row,
+.dark-mode .dataset .details-top .header-row,
+.dark-mode .dataset .description,
+.dark-mode .dataset .distributions,
+.dark-mode .dataset .keywords,
+.dark-mode .dataset .info {
+    background: #202838;
 }
 .datasets section .input-group .input-group-append button {
     border-radius: 0 .5rem .5rem 0;
@@ -246,6 +383,9 @@ header nav.navbar {
     right: 0 !important;
     top: 0 !important;
     z-index: 5 !important;
+}
+.dark-mode header nav.navbar {
+    background-color: rgba(0,0,0,.8) !important;
 }
 header nav.navbar > .container-fluid {
     padding: 0 0 0 1.5rem;
@@ -283,12 +423,15 @@ header nav.navbar .nav-link {
     border-radius: 0;
 }
 .dataset-facets .list-group-item-action.active {
-    color: #344767;
+    color: #304868;
+}
+.dark-mode .dataset-facets .list-group-item-action.active {
+    color: #e0e8f0;
 }
 
 .dataset-facets .facet-count {
     background: #fff !important;
-    border-color: #344767 !important;
+    border-color: #304868 !important;
     border-radius: .5rem;
     color: hsl(218, 33%, 30%) !important;
 }
@@ -383,9 +526,13 @@ header nav.navbar .nav-link {
     padding: 1rem;
 }
 .datasets section .items-group::before {
+    color: #304868;
     content: 'Datensätze';
     font-weight: 600;
     padding: .5rem 0 1.5rem 0;
+}
+.dark-mode .datasets section .items-group::before {
+    color: #90a0b8;
 }
 .datasets section .items-group .dataset {
     background: #fff;
@@ -396,11 +543,19 @@ header nav.navbar .nav-link {
     margin-top: 0 !important;
     padding: 0;
 }
+.dark-mode .datasets section .items-group .dataset {
+    background-color: #202838;
+}
 .datasets section .items-group .dataset:last-child {
     border-bottom: none !important;
 }
 .datasets section .items-group .dataset a {
-    border: 1px solid #fff;
+    border-left: .5rem solid #fff;
+    border-right: .5rem solid #fff;
+}
+.dark-mode .datasets section .items-group .dataset a {
+    border-color: #202838;
+    color: #90a0b8 !important;
 }
 
 /* ------------------ */
@@ -408,11 +563,15 @@ header nav.navbar .nav-link {
 /* ------------------ */
 
 .data-info-box.dataset .card-header {
-    padding-left: 4rem;
+    padding-left: 3.5rem;
+    padding-right: .5rem;
     position: relative;
 }
 .data-info-box.dataset .card-header .data-info-box-title {
     font-size: .875rem !important;
+}
+.dark-mode .data-info-box.dataset .card-header .data-info-box-title {
+    color: #90a0b8 !important;
 }
 .data-info-box.dataset ul.subtitle-list li {
     font-size: .75rem;
@@ -422,15 +581,18 @@ header nav.navbar .nav-link {
     padding-right: .7rem;
 }
 .data-info-box.dataset ul.subtitle-list li span.d-inline-block {
-    color: #344767 !important;
+    color: #304868 !important;
     font-weight: 600;
+}
+.dark-mode .data-info-box.dataset ul.subtitle-list li span.d-inline-block {
+    color: #90a0b8 !important;
 }
 .dataset-details-header img.catalogue-flag {
     border: none !important;
 }
 .data-info-box.dataset img.catalogue-flag {
     border: none !important;
-    left: 1rem;
+    left: .5rem;
     height: 2.5rem;
     position: absolute;
     top: .9rem;
@@ -441,6 +603,8 @@ header nav.navbar .nav-link {
 }
 .data-info-box.dataset .card-body {
     font-size: .75rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
 }
 
 .dataset .distributions h3 .badge {
@@ -518,6 +682,9 @@ header nav.navbar .nav-link {
     border-top-color: #cb0c9f !important;
     margin-bottom: 0;
     padding: 0;
+}
+.dataset .distributions li:last-child {
+    border-bottom: none !important;
 }
 .dataset .distributions li small {
     font-size: .75rem;
