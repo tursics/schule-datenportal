@@ -17,6 +17,7 @@ header nav.navbar,
 .datasets section .count-group,
 .datasets section .selected-facets-group,
 .datasets section .items-group,
+.datasets section .loading-indicator,
 .dataset-facets .facet-field .list-group,
 .dataset .details-top .actions-row,
 .dataset .details-top .header-row,
@@ -31,6 +32,7 @@ header nav.navbar,
 .dark-mode .datasets section .count-group,
 .dark-mode .datasets section .selected-facets-group,
 .dark-mode .datasets section .items-group,
+.dark-mode .datasets section .loading-indicator,
 .dark-mode .dataset-facets .facet-field .list-group,
 .dark-mode .dataset .details-top .actions-row,
 .dark-mode .dataset .details-top .header-row,
@@ -330,6 +332,7 @@ a > .rounded-pill:hover,
 .datasets section .count-group,
 .datasets section .selected-facets-group,
 .datasets section .items-group,
+.datasets section .loading-indicator,
 .dataset .details-top .actions-row,
 .dataset .details-top .header-row,
 .dataset .description,
@@ -344,6 +347,7 @@ a > .rounded-pill:hover,
 .dark-mode .datasets section .count-group,
 .dark-mode .datasets section .selected-facets-group,
 .dark-mode .datasets section .items-group,
+.dark-mode .datasets section .loading-indicator,
 .dark-mode .dataset .details-top .actions-row,
 .dark-mode .dataset .details-top .header-row,
 .dark-mode .dataset .description,
@@ -438,7 +442,12 @@ header nav.navbar .nav-link {
     background: #fff !important;
     border-color: #304868 !important;
     border-radius: .5rem;
-    color: hsl(218, 33%, 30%) !important;
+    color: #304868 !important;
+}
+.dark-mode .dataset-facets .facet-count {
+    background-color: #202838 !important;
+    border-color: #90a0b8 !important;
+    color: #90a0b8 !important;
 }
 
 .dataset-facets .facet-header-item {
@@ -490,12 +499,28 @@ header nav.navbar .nav-link {
 .datasets section .count-group > div.text-center {
     flex: auto;
 }
+.datasets section .loading-indicator {
+    margin-top: -3.5rem !important;
+    padding-top: 2rem;
+}
 .datasets section .loading-indicator div {
     color: #cb0c9f !important;
     font-size: 1.25rem;
     height: 4rem;
     margin: 2rem 0;
     width: 4rem;
+}
+.dark-mode .datasets section .loading-indicator div {
+    color: #f070b8 !important;
+}
+
+.__cov-progress {
+    background-color: #cb0c9f !important;
+    height: 1rem !important;
+    z-index: 1 !important;
+}
+.dark-mode .__cov-progress {
+    background-color: #f070b8 !important;
 }
 
 .datasets section .selected-facets-group {
