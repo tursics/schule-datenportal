@@ -575,6 +575,7 @@ header nav.navbar .nav-link {
 }
 .dark-mode .datasets section .items-group .dataset {
     background-color: #202838;
+    border-bottom-color: #444 !important;
 }
 .datasets section .items-group .dataset:last-child {
     border-bottom: none !important;
