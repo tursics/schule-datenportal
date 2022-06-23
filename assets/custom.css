@@ -361,9 +361,16 @@ a > .rounded-pill:hover,
 /* ------------------ */
 
 header {
+    -webkit-backdrop-filter: saturate(175%) blur(.3rem);
+    backdrop-filter: saturate(175%) blur(.3rem);
+    background-color: #f8f8f8c0 !important;
+    height: calc(5rem - 2px);
     position: sticky;
     top: 0;
     z-index: 1024;
+}
+.dark-mode header {
+    background-color: #101828c0 !important;
 }
 header.border-bottom {
     border-bottom: none !important;
@@ -372,9 +379,7 @@ header.mb-3 {
     margin-bottom: 0 !important;
 }
 header nav.navbar {
-    -webkit-backdrop-filter: saturate(175%) blur(.3rem);
-    backdrop-filter: saturate(175%) blur(.3rem);
-    background-color: rgba(255,255,255,.8) !important;
+    background-color: #ffffff40 !important;
     border-radius: 1rem;
     left: 0 !important;
     margin: 1rem 1.5rem 1rem 1.5rem !important;
@@ -385,7 +390,7 @@ header nav.navbar {
     z-index: 5 !important;
 }
 .dark-mode header nav.navbar {
-    background-color: rgba(0,0,0,.8) !important;
+    background-color: #60708830 !important;
 }
 header nav.navbar > .container-fluid {
     padding: 0 0 0 1.5rem;
@@ -405,7 +410,7 @@ header nav.navbar .nav-link {
 }
 
 .content-wrapper {
-    padding-top: 5.5rem;
+    padding-top: 1rem;
 }
 
 /* ------------------ */
