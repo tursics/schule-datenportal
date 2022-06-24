@@ -586,7 +586,7 @@ header nav.navbar .nav-link {
 }
 .dark-mode .datasets section .items-group .dataset a {
     border-color: #202838;
-    color: #90a0b8 !important;
+    color: #e2e8f0 !important;
 }
 
 /* ------------------ */
@@ -602,7 +602,7 @@ header nav.navbar .nav-link {
     font-size: .875rem !important;
 }
 .dark-mode .data-info-box.dataset .card-header .data-info-box-title {
-    color: #90a0b8 !important;
+    color: #e2e8f0 !important;
 }
 .data-info-box.dataset ul.subtitle-list li {
     font-size: .75rem;
@@ -611,12 +611,15 @@ header nav.navbar .nav-link {
     border-right: 1px solid #cb0c9f;
     padding-right: .7rem;
 }
+.dark-mode .data-info-box.dataset ul.subtitle-list li:not(:last-child) {
+    border-right-color: #f070b8;
+}
 .data-info-box.dataset ul.subtitle-list li span.d-inline-block {
     color: #304868 !important;
     font-weight: 600;
 }
 .dark-mode .data-info-box.dataset ul.subtitle-list li span.d-inline-block {
-    color: #90a0b8 !important;
+    color: #e2e8f0 !important;
 }
 .dataset-details-header img.catalogue-flag {
     border: none !important;
@@ -668,6 +671,9 @@ header nav.navbar .nav-link {
     padding-left: 1rem;
     padding-right: 1rem;
 }
+.dark-mode .dataset {
+    color: #e2e8f0;
+}
 
 .dataset h3 {
     font-size: 1rem;
@@ -694,6 +700,9 @@ header nav.navbar .nav-link {
 .dataset .border-bottom {
     border-bottom-color: #cb0c9f !important;
 }
+.dark-mode .dataset .border-bottom {
+    border-bottom-color: #f070b8 !important;
+}
 
 .dataset .description {
     border-radius: 0 0 1rem 1rem;
@@ -713,6 +722,9 @@ header nav.navbar .nav-link {
     border-top-color: #cb0c9f !important;
     margin-bottom: 0;
     padding: 0;
+}
+.dark-mode .dataset .distributions ul {
+    border-top-color: #f070b8 !important;
 }
 .dataset .distributions li:last-child {
     border-bottom: none !important;
@@ -763,10 +775,18 @@ header nav.navbar .nav-link {
     padding-bottom: 0 !important;
     padding-left: 0;
 }
+.dark-mode .dataset .info > .row > div > .row > div:nth-child(2) {
+    background-color: #202838 !important;
+}
 .dataset .info > .row > div > .row > div:nth-child(3) table {
     background: #fff !important;
     margin-bottom: 0;
     margin-left: 1.75rem;
+    width: calc(100% - 1.75rem);
+}
+.dark-mode .dataset .info > .row > div > .row > div:nth-child(3) table {
+    background-color: #202838 !important;
+    color: #e2e8f0;
 }
 .dataset .info > .row > div > .row > div:nth-child(3) table tr td:nth-child(2) {
     font-weight: 800;
@@ -777,15 +797,21 @@ header nav.navbar .nav-link {
 .dataset-details-header[type="iTWO tender"] img.catalogue-flag,
 .data-info-box.dataset[type="iTWO tender"] img.catalogue-flag {
     content: url('fa-itwo.svg');
+    filter: invert(.2);
+}
+.dark-mode .dataset-details-header[type="iTWO tender"] img.catalogue-flag,
+.dark-mode .data-info-box.dataset[type="iTWO tender"] img.catalogue-flag {
+    filter: invert(.9);
 }
 
 .dataset-details-header[type=PARDOK] img.catalogue-flag,
 .data-info-box.dataset[type=PARDOK] img.catalogue-flag {
     content: url('logo-agh.svg');
-    filter: brightness(1) invert(1);
+    filter: invert(.9);
 }
-.dataset-details-header[type=PARDOK] img.catalogue-flag {
-    filter: brightness(1) invert(1);
+.dark-mode .dataset-details-header[type=PARDOK] img.catalogue-flag,
+.dark-mode .data-info-box.dataset[type=PARDOK] img.catalogue-flag {
+    filter: invert(.2);
 }
 
 .dataset-details-header[type=Pressemitteilung] img.catalogue-flag,
@@ -794,16 +820,32 @@ header nav.navbar .nav-link {
 .data-info-box.dataset[type=Webseite] img.catalogue-flag {
     content: url('wiki-berlin.svg');
 }
+.dark-mode .dataset-details-header[type=Pressemitteilung] img.catalogue-flag,
+.dark-mode .data-info-box.dataset[type=Pressemitteilung] img.catalogue-flag,
+.dark-mode .dataset-details-header[type=Webseite] img.catalogue-flag,
+.dark-mode .data-info-box.dataset[type=Webseite] img.catalogue-flag {
+    filter: invert(.9);
+}
 
 .dataset-details-header[type=Twitter] img.catalogue-flag,
 .data-info-box.dataset[type=Twitter] img.catalogue-flag {
     content: url('fa-twitter.svg');
+    filter: invert(.2);
     width: 2.1rem;
 }
+.dark-mode .dataset-details-header[type=Twitter] img.catalogue-flag,
+.dark-mode .data-info-box.dataset[type=Twitter] img.catalogue-flag {
+    filter: invert(.9);
+}
 
-.dataset-details-header[type=Tagesspiegel] img.catalogue-flag,
-.data-info-box.dataset[type=Tagesspiegel] img.catalogue-flag {
+.dataset-details-header[type=Medien] img.catalogue-flag,
+.data-info-box.dataset[type=Medien] img.catalogue-flag {
     content: url('fa-newspaper.svg');
+    filter: invert(.2);
+}
+.dark-mode .dataset-details-header[type=Medien] img.catalogue-flag,
+.dark-mode .data-info-box.dataset[type=Medien] img.catalogue-flag {
+    filter: invert(.9);
 }
 
 div[type=Artikel] .badge,
@@ -812,15 +854,37 @@ div[type=Artikel] .badge,
     border-color: #004B87 !important;
     color: #004B87 !important;
 }
+.dark-mode div[type=Artikel] .badge,
+.dark-mode .badge[type=Artikel] {
+    filter: brightness(.8);
+}
 div[type=PDF] .badge,
 .badge[type=PDF] {
     background-color: #F40F02 !important;
     border-color: #BA131F !important;
     color: #FFFFFF !important;
 }
+.dark-mode div[type=PDF] .badge,
+.dark-mode .badge[type=PDF] {
+    filter: brightness(.8);
+}
+div[type=Tabelle] .badge,
+.badge[type=Tabelle] {
+    background-color: #f0e51d !important;
+    border-color: #bfb617 !important;
+    color: #222 !important;
+}
+.dark-mode div[type=Tabelle] .badge,
+.dark-mode .badge[type=Tabelle] {
+    filter: brightness(.8);
+}
 div[type=Tweet] .badge,
 .badge[type=Tweet] {
     background-color: #1D9BF0 !important;
     border-color: #657786 !important;
     color: #F5F8FA !important;
+}
+.dark-mode div[type=Tweet] .badge,
+.dark-mode .badge[type=Tweet] {
+    filter: brightness(.8);
 }
