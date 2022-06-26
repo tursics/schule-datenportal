@@ -1,7 +1,7 @@
 {
-  "name": "schule-datenportal",
+  "name": "schule-transparenzportal",
   "version": "1.0.0",
-  "description": "Schule Datenportal",
+  "description": "Schule Transparenzportal",
   "main": "index.html",
   "scripts": {
     "open_works": "concurrently \"http-server -a localhost -p 1234\" \"open http://localhost:1234/\"",

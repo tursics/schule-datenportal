@@ -576,7 +576,7 @@ header nav.navbar .nav-link {
 }
 .datasets section .items-group::before {
     color: #304868;
-    content: 'Datensätze';
+    content: 'Einträge';
     font-weight: 600;
     padding: .5rem 0 1.5rem 0;
 }

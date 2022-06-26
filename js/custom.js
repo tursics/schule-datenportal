@@ -1,4 +1,4 @@
-CONFIG_APP_TITLE = 'Berliner Schul-Datenportal';
+CONFIG_APP_TITLE = 'Berliner Schul-Transparenzportal';
 CONFIG_APP_HEADER_LOGO_TEXT = CONFIG_APP_TITLE;
 CONFIG_APP_AUTH_SERVICE = 'zero';
 CONFIG_APP_ROUTER_REDIRECT_ROOT_TO = 'Welcome';
@@ -12,11 +12,23 @@ CONFIG_APP_LANGUAGES = {
     'en': {
         'message': {
             "datasetDetails": {
-                'openResource': 'Go to link'
+                'openResource': 'Go to link',
+                'share': {
+                    'dataset': 'Share'
+                }
             },
             'datasetFacets': {
                 'facets': {
                     'catalogues': 'Sources'
+                }
+            },
+            'datasets': {
+                'countMessage': 'entries found',
+                'countMessageSingular': 'entries found for {query}',
+                'loadingMessage': 'Loading entries...',
+                'noResult': 'No entries found for {query}',
+                'searchBar': {
+                    'placeholder': 'Search entries'
                 }
             },
             'metadata': {
@@ -28,11 +40,23 @@ CONFIG_APP_LANGUAGES = {
         'message': {
             "datasetDetails": {
                 'download': 'Herunterladen',
-                'openResource': 'Link öffnen'
+                'openResource': 'Link öffnen',
+                'share': {
+                    'dataset': 'Teilen'
+                }
             },
             'datasetFacets': {
                 'facets': {
                     'catalogues': 'Quellen'
+                }
+            },
+            'datasets': {
+                'countMessage': 'Einträge gefunden',
+                'countMessageSingular': 'Einträge gefunden für {query}',
+                'loadingMessage': 'Einträge werden abgerufen...',
+                'noResult': 'Keine Einträge gefunden für {query}',
+                'searchBar': {
+                    'placeholder': 'Einträge durchsuchen'
                 }
             },
             'metadata': {

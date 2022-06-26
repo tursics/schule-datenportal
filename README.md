@@ -1,4 +1,4 @@
-# schule-datenportal
+# Schul-Transparenzportal (school transparency portal)
 
 Based on [Peacock data portal](https://github.com/opendata-guru/peacock-user-ui).
 
