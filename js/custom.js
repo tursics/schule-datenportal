@@ -545,7 +545,7 @@ function uploadDistribution(evt) {
     var title = $getters['datasetDetails/getTitle'];
     var location = window.location.href;
 
-    var to = 'schulportal.be845e47@tursics.de';
+    var to = 'beta.version@schulportal.berlin';
     var subject = title.de;
     var body =
         'Aktuell kannst du deine Tabellen nicht direkt hochladen. Bitte benutze diese E-Mail dafür.\n\n' +
