@@ -880,6 +880,110 @@ footer a {
 }
 
 /* ------------------ */
+/*        Logo        */
+/* ------------------ */
+
+@keyframes key-transp {
+    0%, 40% {
+        opacity: 1;
+        width: 9rem;
+    }
+    50%, 90% {
+        opacity: 0;
+        width: 0;
+    }
+    100% {
+        opacity: 1;
+        width: 9rem;
+    }
+}
+@keyframes key-r {
+    0%, 40% {
+        opacity: 1;
+        width: 1rem;
+    }
+    50%, 90% {
+        opacity: 0;
+        width: 0;
+    }
+    100% {
+        opacity: 1;
+        width: 1rem;
+    }
+}
+@keyframes key-z {
+    0%, 40% {
+        opacity: 1;
+        width: 1.5rem;
+    }
+    50%, 90% {
+        opacity: 0;
+        width: 0;
+    }
+    100% {
+        opacity: 1;
+        width: 1.5rem;
+    }
+}
+@keyframes key-d {
+    0%, 40% {
+        opacity: 0;
+        width: 0;
+    }
+    50%, 90% {
+        opacity: 1;
+        width: 2rem;
+    }
+    100% {
+        opacity: 0;
+        width: 0;
+    }
+}
+@keyframes key-t {
+    0%, 40% {
+        opacity: 0;
+        width: 0;
+    }
+    50%, 90% {
+        opacity: 1;
+        width: 1.1rem;
+    }
+    100% {
+        opacity: 0;
+        width: 0;
+    }
+}
+
+.logo-1a,
+.logo-1b,
+.logo-1c {
+    animation: name 10s cubic-bezier(0,.5,0,1) infinite;
+    display: inline-block;
+}
+.logo-1a {
+    animation-name: key-transp;
+}
+.logo-1b {
+    animation-name: key-r;
+}
+.logo-1c {
+    animation-name: key-z;
+}
+.logo-2a,
+.logo-2b {
+    animation: name 10s cubic-bezier(0,.5,0,1) infinite;
+    display: inline-block;
+    opacity: 0;
+    width: 0;
+}
+.logo-2a {
+    animation-name: key-d;
+}
+.logo-2b {
+    animation-name: key-t;
+}
+
+/* ------------------ */
 
 .dataset-details-header[type="iTWO tender"] img.catalogue-flag,
 .data-info-box.dataset[type="iTWO tender"] img.catalogue-flag {
