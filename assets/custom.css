@@ -845,9 +845,6 @@ footer a {
     padding-right: .33rem;
     width: fit-content;
 }
-.dataset .keywords span small::before {
-    content: attr(title);
-}
 
 .dataset .info {
     border-radius: 0 0 1rem 1rem;
