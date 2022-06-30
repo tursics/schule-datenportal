@@ -522,3 +522,47 @@ class GoogleSpreadsheetDataService {
 
 CONFIG_APP_DATA_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSaLGv04zGBi7TnqZn6DJS9vb_6ynVPD0ShDqv57uyRTLgr7Nknbx7344_wtORc_i3ItZQRzDK9GXrV/pub?gid=0&single=true&output=csv';
 CONFIG_APP_DATA_SERVICE = GoogleSpreadsheetDataService;
+
+function uploadDistribution(evt) {
+    evt.preventDefault();
+
+    var $vm = document.querySelector('#app').__vue__;
+    var $getters = $vm.$store.getters;
+    var id = $getters['datasetDetails/getID'];
+    var title = $getters['datasetDetails/getTitle'];
+    var location = window.location.href;
+
+    var to = 'schulportal.be845e47@tursics.de';
+    var subject = title.de;
+    var body =
+        'Aktuell kannst du deine Tabellen nicht direkt hochladen. Bitte benutze diese E-Mail dafür.\n\n' +
+        'Titel: ' + title.de + '\n' +
+        'ID: ' + id + '\n' +
+        'Link: ' + location + '\n\n' +
+        'Das habe ich geändert: ________\n' +
+        'Lizenz: die Daten werden unter der offenen Lizenz CC-0 bereit gestellt\n' +
+        'Namensnennung: ich möchte mit Namen genannt werden [ja/nein]\n\n' +
+        'Bitte füge deine Tabelle oder deine Daten als Anhang hinzu und versende diese E-Mail.\n\n' +
+        'Viele Dank,\n' + 
+        'Thomas';
+
+    window.open('mailto:' + encodeURIComponent(to) + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body));
+}
+
+CONFIG_APP_HEADER_CUSTOM_HTML = '<span>beta</span>';
+CONFIG_APP_DATASET_DISTRIBUTION_CUSTOM_HTML =
+    '<span class="d-inline-block col-md-1 col-2 pr-md-1 pr-0 m-md-0 m-auto">' +
+        '<div type="Add" class="float-md-right text-center"><span class="bg-light border border-secondary text-dark rounded-pill badge distribution-pill">+</span></div>' +
+    '</span>' +
+    '<span class="col-md-11 col-10">' + 
+        '<span class="row"><span class="d-inline-block col-md-7 col-12">' +
+            '<h4 class="m-0 fs-6">Hinzufügen</h4>' +
+            '<span class="mt-2 d-block text-muted text-truncate"><small>Hast du Daten aus einer PDF-Datei in eine Tabelle umgewandelt, die vorhandenen Daten verbessert, verschnitten, benutzt?</small></span>' +
+            '<small class="mt-2 d-block">Dann lade es hier hoch bzw. teile den Link.</small>' +
+        '</span>' +
+        '<span class="col-md-5 col-12 mt-2 text-end">' +
+            '<span><a href="#" onClick="uploadDistribution(event)" class="btn btn-sm btn-secondary py-1 px-2">Hochladen</a></span>' +
+        '</span></span>' +
+    '</span>';
+
+// CONFIG_APP_DATASET_INFO_CUSTOM_HTML = 'Custom dataset info';

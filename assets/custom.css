@@ -23,6 +23,7 @@ header nav.navbar,
 .dataset .details-top .header-row,
 .dataset .description,
 .dataset .distributions,
+.dataset .custom-info,
 .dataset .keywords,
 .dataset .info {
     box-shadow: 0 .3rem .7rem 0 rgba(0,0,0,.1) !important;
@@ -32,7 +33,8 @@ header nav.navbar,
 .dark-mode .datasets section .loading-indicator,
 .dark-mode .dataset-facets .facet-field .list-group,
 .dark-mode .dataset .details-top .actions-row,
-.dark-mode .dataset .distributions {
+.dark-mode .dataset .distributions,
+.dark-mode .dataset .custom-info {
     box-shadow: 0 0 0 1px rgb(255 255 255 / 15%) !important;
 }
 .dark-mode .datasets section .filters-group,
@@ -354,6 +356,7 @@ a > .rounded-pill:hover,
 .dataset .details-top .header-row,
 .dataset .description,
 .dataset .distributions,
+.dataset .custom-info,
 .dataset .keywords,
 .dataset .info {
     background: #fff;
@@ -369,6 +372,7 @@ a > .rounded-pill:hover,
 .dark-mode .dataset .details-top .header-row,
 .dark-mode .dataset .description,
 .dark-mode .dataset .distributions,
+.dark-mode .dataset .custom-info,
 .dark-mode .dataset .keywords,
 .dark-mode .dataset .info {
     background: #202838;
@@ -434,6 +438,31 @@ header nav.navbar .nav-link {
 
 .content-wrapper {
     padding-top: 1rem;
+}
+
+header .custom-header {
+    height: 4.5rem;
+    overflow-x: hidden;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+header .custom-header span {
+    background-image: linear-gradient(310deg,#7928ca,#ff0080);
+    color: #fff;
+    display: block;
+    font-size: .75rem;
+    font-weight: 700;
+    margin: .5rem -1.5rem 0 0;
+    padding: .3rem 2rem;
+    text-transform: uppercase;
+    transform: rotate(45deg);
+}
+.dark-mode header .custom-header span {
+    background-image: linear-gradient(310deg,#981858,#f070b8);
+    color: #e2e8f0;
 }
 
 /* ------------------ */
@@ -761,6 +790,11 @@ header nav.navbar .nav-link {
     margin: auto 0 !important;
 }
 
+.dataset .custom-info {
+    margin: 2rem 0 0 0 !important;
+    padding: 1rem;
+}
+
 .dataset .keywords {
     border-radius: 1rem 1rem 0 0;
     font-size: .75rem;
@@ -875,6 +909,16 @@ header nav.navbar .nav-link {
     filter: invert(.9);
 }
 
+div[type=Add] .badge,
+.badge[type=Add] {
+    background-color: #F40F02 !important;
+    border-color: #BA131F !important;
+    color: #FFFFFF !important;
+}
+.dark-mode div[type=Add] .badge,
+.dark-mode .badge[type=Add] {
+    filter: brightness(.8);
+}
 div[type=Artikel] .badge,
 .badge[type=Artikel] {
     background-color: #FFFFFF !important;
