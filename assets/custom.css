@@ -466,6 +466,32 @@ header .custom-header span {
 }
 
 /* ------------------ */
+/*       footer       */
+/* ------------------ */
+
+footer {
+    -webkit-backdrop-filter: saturate(175%) blur(.3rem);
+    backdrop-filter: saturate(175%) blur(.3rem);
+    background-color: #ffffff40 !important;
+    box-shadow: 0 -0.3rem 0.7rem 0 rgb(0 0 0 / 10%) !important;
+    font-size: .875rem;
+}
+.dark-mode footer {
+    background-color: #60708830 !important;
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 15%) !important;
+}
+footer.border-top {
+    border-top: none !important;
+}
+footer a {
+    margin-left: 1rem;
+}
+.dark-mode footer a {
+    color: #90a0b8 !important;
+    margin-left: 1rem;
+}
+
+/* ------------------ */
 /*   dataset-facets   */
 /* ------------------ */
 
