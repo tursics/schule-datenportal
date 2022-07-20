@@ -1,0 +1,57 @@
+BSN,Schulname,Bezirk,Baujahr,Anzahl_Klassenraeume,Kapazitaeten_Schulplaetze
+01G48,48. Grundschule,Mitte,2017,16,288
+01G02,Papageno-Grundschule,Mitte,2017,12,216
+01K04,Heinrich-von-Stephan-Gemeinschaftsschule,Mitte,2017,12,216
+01G40,Möwensee-Grundschule,Mitte,2020,12,216
+02K06,Emanuel-Lasker-Schule,Friedrichshain-Kreuzberg,2016,24,360
+02G09,Zille-Grundschule,Friedrichshain-Kreuzberg,2016,12,216
+02G37,37. Grundschule,Friedrichshain-Kreuzberg,2017,16,288
+03K08,Hagenbeck-Schule,Pankow,2016,12,200
+03K02,Kurt-Tucholsky-Schule,Pankow,2016,22,300
+03K07,Tesla-Gemeinschaftsschule,Pankow,2017,22,360
+03G47,Schule an der Strauchwiese,Pankow,2017,12,216
+03K03,Konrad-Duden-Schule,Pankow,2017,22,216
+03G12,Paul-Lincke-Grundschule,Pankow,2017,12,216
+03G27,Elisabeth-Shaw-Grundschule,Pankow,2018,12,216
+03G48,48. Grundschule,Pankow,2018,16,288
+03G22,Grundschule am Wasserturm (Filiale),Pankow,2020,16,288
+02S03,Helene-Haeusler-Schule,Pankow,2020,12,104
+03B09,OSZ Bau/Holz Marcel-Breuer-Schule,Pankow,2018,24,300
+05G13,Bernd-Ryke-Grundschule,Spandau,2016,12,216
+05K06,Wolfgang-Borchert-Schule,Spandau,2016,12,200
+05Y01,Freiherr-vom-Stein-Gymnasium,Spandau,2016,24,348
+05G28,Grundschule an der Pulvermühle,Spandau,2020,16,288
+05G27,Peter-Härtling-Grundschule,Spandau,2020,12,216
+05G30,Birken-Grundschule,Spandau,2020,16,360
+06G33,Friedrich-Drake-Grundschule,Steglitz-Zehlendorf,2016,12,216
+06G20,Alt-Lankwitzer Grundschule,Steglitz-Zehlendorf,2021,16,360
+06G27,Grundschule am Königsgraben,Steglitz-Zehlendorf,2021,16,360
+06Y09,Fichtenberg-Oberschule,Steglitz-Zehlendorf,2018,12,174
+07G19,Paul-Simmel-Grundschule,Tempelhof-Schöneberg,2016,22,360
+07G06,Sternberg Grundschule,Tempelhof-Schöneberg,2021,16,360
+08G20,Sonnen-Schule,Neukölln,2020,16,288
+09K09,Grünauer Gemeinschaftsschule,Treptow-Köpenick,2016,21,360
+09G07,Schule an der alten Feuerwache,Treptow-Köpenick,2017,12,216
+09G14,Schule am Buntzelberg,Treptow-Köpenick,2017,16,288
+09K07,Sophie-Brahe-Gemeinschaftsschule,Treptow-Köpenick,2020,12,250
+09G03,Schule am Heidekampgraben,Treptow-Köpenick,2020,24,504
+10K12,Gretel-Bergmann-Gemeinschaftsschule,Marzahn-Hellersdorf,2016,12,216
+10G29,Grundschule an der Wuhle,Marzahn-Hellersdorf,2017,12,216
+10Y02,Otto-Nagel-Gymnasium,Marzahn-Hellersdorf,2020,12,174
+10G31,Franz-Carl-Achard-Grundschule,Marzahn-Hellersdorf,2020,12,216
+10S07,Schule am Rosenhain,Marzahn-Hellersdorf,2020,12,104
+11K12,Paul-u.-Charlotte-Kniese-Gemeinschaftsschule,Lichtenberg,2016,12,216
+11G18,Grundschule am Wilhelmsberg,Lichtenberg,2016,21,360
+11G02,Grundschule am Roederplatz,Lichtenberg,2016,12,216
+11G33,Gerda-Lagerlöf-Grundschule,Lichtenberg,2017,12,216
+11K07,Vincent-van-Gogh-Schule,Lichtenberg,2017,22,300
+11G10,Schule am Ostseekarree,Lichtenberg,2020,12,216
+11G16,Schule an der Victoriastadt,Lichtenberg,2020,16,288
+11S12,Nils-Holgersson-Schule,Lichtenberg,2020,12,104
+11K10,Grüner Campus Malchow,Lichtenberg,2018,12,216
+11K11,Paul-Schmidt-Schule,Lichtenberg,2020,16,300
+11K12,Paul-u.-Charlotte-Kniese-Schule,Lichtenberg,2020,22,300
+11G05,Schule auf dem lichten Berg,Lichtenberg,2020,16,288
+11G11,Bernhard-Grzimek-Schule,Lichtenberg,2020,16,360
+12S04,Schule am Park,Reinickendorf,2018,12,104
+12G20,Grundschule am Vierruthenberg,Reinickendorf,2021,16,360
